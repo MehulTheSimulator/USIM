@@ -1,0 +1,6 @@
+framework module Pods_USIM_USIMUITests {
+  umbrella header "Pods-USIM-USIMUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

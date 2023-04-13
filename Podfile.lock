@@ -1,0 +1,46 @@
+PODS:
+  - Alamofire (5.6.4)
+  - CFNotify (1.0.3)
+  - GSPlayer (0.2.26)
+  - IQKeyboardManagerSwift (6.5.11)
+  - MBCircularProgressBar (0.3.5)
+  - SDWebImage (5.15.4):
+    - SDWebImage/Core (= 5.15.4)
+  - SDWebImage/Core (5.15.4)
+  - SnapKit (5.0.1)
+  - SwiftPopup (5.0.0):
+    - SnapKit (~> 5.0.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - CFNotify
+  - GSPlayer
+  - IQKeyboardManagerSwift
+  - MBCircularProgressBar
+  - SDWebImage
+  - SwiftPopup
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - CFNotify
+    - GSPlayer
+    - IQKeyboardManagerSwift
+    - MBCircularProgressBar
+    - SDWebImage
+    - SnapKit
+    - SwiftPopup
+
+SPEC CHECKSUMS:
+  Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
+  CFNotify: a5f89f0b315a5eceebbdb9913df7da35fac51d74
+  GSPlayer: 1ee7c282d6e6125ca9c0c684d91b8a31512ccfe6
+  IQKeyboardManagerSwift: c7955c0bdbf7b2eb29bb7daaa44e3d90f55a9a85
+  MBCircularProgressBar: 0b795b722a5eb5b0923822f90474e2576a1a7855
+  SDWebImage: 1c39de67663e5eebb2f41324d5d580eeea12dd4c
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SwiftPopup: 31874508c0d91788edf71419a5bbeb3ebd498ab9
+
+PODFILE CHECKSUM: 9e0ee5aa5ef6201c628cc0989a6b1756ed97dc77
+
+COCOAPODS: 1.12.0

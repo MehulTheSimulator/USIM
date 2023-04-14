@@ -55,6 +55,7 @@ class VideoCollectionCell : UICollectionViewCell {
         txtView?.text = USIM.application.config.getViewDefinition(modeKey: customVideoData!.videoRef.modeKey, viewKey: customVideoData!.videoRef.viewKey)?.name ?? ""
         txtPoint?.text = USIM.application.config.getAccessPoint(key: customVideoData!.videoRef.pointKey)?.name ?? ""
     }
+    
     @IBAction func onClickSetNameBtn(_ sender: UIButton) {
         customVideoData?.name = txtName.text ?? "New Video"
         update()

@@ -173,20 +173,21 @@ public class ApplicationConfig {
         trySaveLocalData()
     }
     
+    // MARK: - Get Mode -
+    
+    public func getTotalModeCount() -> Int {
+        return getDefaultModeCount() + getCustomModeCount()
+    }
+    
     public func getDefaultModeCount() -> Int {
-        
         return remoteData.modeDefinitions.count
     }
     
     public func getCustomModeCount() -> Int {
-        
         return localData.customModeDefinitions.count
     }
     
-    public func getTotalModeCount() -> Int {
-        
-        return getDefaultModeCount() + getCustomModeCount()
-    }
+   
     
     public func getMode(index: Int) -> ModeDefinition? {
         

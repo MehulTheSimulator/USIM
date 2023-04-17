@@ -9,7 +9,6 @@ import UIKit
 
 class TagViewsCollectionCell: UICollectionViewCell {
     
-    
     // MARK: -  IBOutlets -
     @IBOutlet weak var designableView: DesignableView!
     @IBOutlet weak var button: UIButton!
@@ -45,6 +44,6 @@ class TagViewsCollectionCell: UICollectionViewCell {
         buttonEdit?.isHidden = !isCustom
         buttonDelete?.isHidden = !isCustom
         button?.setTitle((modeKey != nil && viewKey != nil ? USIM.application.config.getViewDefinition(modeKey: modeKey!, viewKey: viewKey!)?.name : nil) ?? "", for: .normal)
-        designableView.shadowColor = (USIM.application.currentView ?? "") == viewKey ? UIColor.blue : UIColor.yellow
+        designableView.shadowColor = (USIM.application.currentView ?? "") == viewKey ? UIColor.yellow : UIColor.blue
     }
 }

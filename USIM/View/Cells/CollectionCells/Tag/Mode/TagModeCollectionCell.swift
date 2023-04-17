@@ -20,7 +20,7 @@ class TagModeCollectionCell: UICollectionViewCell {
     var isCustom: Bool = false
     var modeKey: String?
     
-    // MARK: -  Methods -
+    // MARK: - IBActions -
     @IBAction func onButtonSelectMode(_ sender: Any) {
         let app = USIM.application
         if let modeKeyValue = modeKey {
@@ -28,18 +28,21 @@ class TagModeCollectionCell: UICollectionViewCell {
             target?.updateMode()
         }
     }
+    
     @IBAction func onButtonEdit(_ sender: Any) {
         target?.editMode(modeKey: modeKey!)
     }
+    
     @IBAction func onButtonDelete(_ sender: Any) {
         target?.deleteMode(modeKey: modeKey!)
     }
     
+    // MARK: - Methods -
     public func update() {
-       // buttonEdit.isHidden = false
+        buttonEdit.isHidden = !isCustom
         buttonDelete?.isHidden = !isCustom
         let app = USIM.application
         button?.setTitle((modeKey != nil ? app.getMode(modeKey: modeKey!)?.name : nil) ?? "", for: .normal)
-        designableView.shadowColor = (app.currentMode ?? "") == modeKey ? UIColor.blue : UIColor.yellow
+        designableView.shadowColor = (app.currentMode ?? "") == modeKey ? UIColor.yellow : UIColor.blue
     }
 }

@@ -202,7 +202,6 @@ class HomeViewController: UIViewController {
         }
     }
 
-    
     // MARK: -  Methods -
     func setupCollectionView(_ name: UICollectionView) {
         if name == self.collectionView {

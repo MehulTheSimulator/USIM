@@ -11,7 +11,7 @@ import MobileCoreServices
 
 class VideoCollectionCell : UICollectionViewCell {
     
-    weak var target: UploadVideoViewController?
+    weak var target: CustomVideoViewController?
     
     var index: Int = 0
     var customVideoData: CustomVideoData?
@@ -19,11 +19,9 @@ class VideoCollectionCell : UICollectionViewCell {
     @IBOutlet weak var viewActivity: DesignableView!
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var txtName: UITextField!
-    @IBOutlet weak var txtView: UITextField!
     @IBOutlet weak var txtPoint: UITextField!
     @IBOutlet weak var txtVideo: UITextField!
     
-    var pickerView: UIPickerView?
     var pickerPoint: UIPickerView?
     var pickerVideo: UIPickerView?
     var documentPickerTargetVideoRef: VideoReference? = nil
@@ -34,10 +32,6 @@ class VideoCollectionCell : UICollectionViewCell {
     public func initCell(defaultVideos: [(String, VideoReference)]) {
         self.defaultVideos = defaultVideos
         selectedVideo = nil
-        pickerView = UIPickerView()
-        pickerView?.dataSource = self
-        pickerView?.delegate = self
-        txtView?.inputView = pickerView
         pickerPoint = UIPickerView()
         pickerPoint?.dataSource = self
         pickerPoint?.delegate = self
@@ -52,7 +46,6 @@ class VideoCollectionCell : UICollectionViewCell {
         imagePicker.mediaTypes = [kUTTypeMovie as String, kUTTypeVideo as String, kUTTypeMPEG2Video as String, kUTTypeMPEG4 as String]
         imagePicker.allowsEditing = false
         imagePicker.delegate = self
-        txtView?.text = USIM.application.config.getViewDefinition(modeKey: customVideoData!.videoRef.modeKey, viewKey: customVideoData!.videoRef.viewKey)?.name ?? ""
         txtPoint?.text = USIM.application.config.getAccessPoint(key: customVideoData!.videoRef.pointKey)?.name ?? ""
     }
     
@@ -105,7 +98,6 @@ class VideoCollectionCell : UICollectionViewCell {
             }
         } else {
             
-            
             documentPickerTargetVideoRef = customVideoData!.videoRef
             self.target?.present(imagePicker, animated: true)
             
@@ -127,7 +119,7 @@ class VideoCollectionCell : UICollectionViewCell {
          */
         txtName?.text = customVideoData!.name
         let app = USIM.application
-        pickerView?.selectRow(app.config.getViewIndex(modeKey: customVideoData!.videoRef.modeKey, viewKey: customVideoData!.videoRef.viewKey) ?? 0, inComponent: 0, animated: false)
+//        pickerView?.selectRow(app.config.getViewIndex(modeKey: customVideoData!.videoRef.modeKey, viewKey: customVideoData!.videoRef.viewKey) ?? 0, inComponent: 0, animated: false)
         pickerPoint?.selectRow(app.config.getAccessPointIndex(pointKey: customVideoData!.videoRef.pointKey) ?? 0, inComponent: 0, animated: false)
     }
 }
@@ -183,8 +175,6 @@ extension VideoCollectionCell : UIPickerViewDataSource, UIPickerViewDelegate {
         let app = USIM.application
         if(pickerView == pickerPoint) {
             return app.getAccessPointCount()
-        } else if(pickerView == self.pickerView) {
-            return app.config.getViewCount(modeKey: customVideoData!.videoRef.modeKey)
         }
         return (defaultVideos?.count ?? 0) + 1
     }
@@ -193,8 +183,6 @@ extension VideoCollectionCell : UIPickerViewDataSource, UIPickerViewDelegate {
         let app = USIM.application
         if(pickerView == pickerPoint) {
             return app.getAccessPoint(row)?.name
-        } else if(pickerView == self.pickerView) {
-            return app.config.getViewDefinition(modeKey: customVideoData!.videoRef.modeKey, index: row)?.name
         }
         if(row == 0) {
             return "Custom Video"
@@ -208,10 +196,6 @@ extension VideoCollectionCell : UIPickerViewDataSource, UIPickerViewDelegate {
             customVideoData?.videoRef = VideoReference(modeKey: customVideoData!.videoRef.modeKey, viewKey: customVideoData!.videoRef.viewKey, pointKey: app.getAccessPoint(row)!.key, instanceKey: customVideoData!.videoRef.instanceKey)
             txtPoint?.text = app.getAccessPoint(row)?.name
             txtPoint?.resignFirstResponder()
-        } else if(pickerView == self.pickerView) {
-            customVideoData?.videoRef = VideoReference(modeKey: customVideoData!.videoRef.modeKey, viewKey: app.config.getViewDefinition(modeKey: customVideoData!.videoRef.modeKey, index: row)!.key, pointKey: customVideoData!.videoRef.pointKey, instanceKey: customVideoData!.videoRef.instanceKey)
-            txtView?.text = app.config.getViewDefinition(modeKey: customVideoData!.videoRef.modeKey, index: row)?.name
-            txtView?.resignFirstResponder()
         } else {
             txtVideo?.text = row == 0 ? "Custom Video" : defaultVideos![row - 1].0
             selectedVideo = row == 0 ? nil : defaultVideos![row - 1].1

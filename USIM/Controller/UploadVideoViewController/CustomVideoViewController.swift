@@ -103,7 +103,7 @@ extension CustomVideoViewController: UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let index = indexPath.row
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: VideoCollectionCell.self), for: indexPath) as! VideoCollectionCell
-        //cell.target = self
+        cell.target = self
         cell.index = index
         cell.customVideoData = allCustomMedia[index]
         cell.initCell(defaultVideos: defaultVideos ?? [])

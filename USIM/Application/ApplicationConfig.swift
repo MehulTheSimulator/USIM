@@ -555,11 +555,10 @@ public class ApplicationConfig {
         trySaveLocalData()
     }
     
-    public func getAllCustomMedia(modeKey: String) -> [CustomVideoData] {
-        
+    public func getAllCustomMedia(modeKey: String, viewKey: String) -> [CustomVideoData] {
         var datas: [CustomVideoData] = []
         for d in localData.customVideoDatas {
-            if(d.videoRef.modeKey.compare(modeKey) == .orderedSame) {
+            if(d.videoRef.modeKey.compare(modeKey) == .orderedSame) && (d.videoRef.viewKey.compare(viewKey) == .orderedSame)  {
                 datas.append(d)
             }
         }

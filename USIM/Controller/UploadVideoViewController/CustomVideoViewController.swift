@@ -1,48 +1,42 @@
 //
-//  UplaodVideoViewController.swift
+//  CustomVideoViewController.swift
 //  USIM
 //
-//  Created by Asher Azeem on 2/18/23.
+//  Created by mehul on 18/04/2023.
 //
 
 import UIKit
-import MobileCoreServices
 
+class CustomVideoViewController: UIViewController {
 
-struct UploadVideoModel {
-    var fileName: String
-    var view: String
-    var position: String
-}
-
-class UploadVideoViewController: UIViewController {
-    
     // MARK: -  IBOutlets -
-    @IBOutlet weak var collectionView: UICollectionView?
-    @IBOutlet weak var modeTextField: UITextField?
-    @IBOutlet var btnSetName: UIButton!
+    @IBOutlet weak var videoCollectionView: UICollectionView!
+    @IBOutlet weak var txtView: UITextField!
     
     // MARK: -  Properties -
-    var targetModeKey: String?
     var defaultVideos: [(String, VideoReference)]?
     var allCustomMedia: [CustomVideoData] = []
     
+    public var targetModeKey: String?
+    public var targetViewKey: String?
+    
     // MARK: - Lazy Properties -
     
-    // MARK: -  Life Cycle -
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let collectionView {
-            setupCollectionView(collectionView)
+        
+        if let videoCollectionView {
+            setupCollectionView(videoCollectionView)
         }
+        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let app = USIM.application
-        modeTextField?.text = app.getMode(modeKey: targetModeKey!)?.name
+        self.txtView.text = app.config.getViewDefinition(modeKey: targetModeKey!, viewKey: targetViewKey!)?.name ?? ""
         let isNotCustom = app.config.isModeNotCustom(modeKey: targetModeKey!)
-        modeTextField?.isUserInteractionEnabled = !isNotCustom
+        txtView?.isUserInteractionEnabled = !isNotCustom
        // btnSetName.isEnabled = !isNotCustom
         defaultVideos = []
         for ref in app.config.getDefaultVideos() {
@@ -56,12 +50,6 @@ class UploadVideoViewController: UIViewController {
     }
     
     // MARK: -  IBActions -
-    @IBAction func onClickRemoveBtn(_ sender: UIButton) {
-        //        if let indexPath = collectionView?.indexPathForItem(at: sender.anchorPoint) {
-        //            print(indexPath.row)
-        //        }
-    }
-    
     @IBAction func onClickBack(_ sender: UIButton) {
         self.dismiss(animated: false)
     }
@@ -71,14 +59,14 @@ class UploadVideoViewController: UIViewController {
             [self] in
             if($0) {
                 USIM.application.config.addCustomVideoData(videoRef: VideoReference(modeKey: targetModeKey!, viewKey: USIM.application.config.getDefaultView(modeKey: targetModeKey!) ?? "idk", pointKey: USIM.application.config.getAccessPoint(index: 0)?.key ?? "idk", instanceKey: UUID().uuidString), name: "New Video", cachedPathRelative: nil)
-                reloadData()
+                    reloadData()
             }
         }
     }
     
     @IBAction func buttonSetNamePressed(_ sender: Any) {
-        if let def = USIM.application.getMode(modeKey: targetModeKey!) {
-            def.name = modeTextField?.text ?? "New Mode"
+        if let def = USIM.application.config.getViewDefinition(modeKey: targetModeKey!, viewKey: targetViewKey!) {
+            def.name = txtView.text ?? "New View"
             USIM.application.config.trySaveLocalData()
         }
     }
@@ -91,8 +79,8 @@ class UploadVideoViewController: UIViewController {
     }
     
     func reloadData() {
-        //allCustomMedia = USIM.application.config.getAllCustomMedia(modeKey: targetModeKey!)
-        collectionView?.reloadData()
+        allCustomMedia = USIM.application.config.getAllCustomMedia(modeKey: targetModeKey!, viewKey: targetViewKey!)
+        videoCollectionView?.reloadData()
     }
     
     func requireConfirm(title: String, text: String, _ callback: @escaping (Bool) -> ()) {
@@ -102,5 +90,31 @@ class UploadVideoViewController: UIViewController {
             controller.callback = callback
             self.present(controller, animated: true, completion: nil)
         }
+    }
+
+}
+
+
+// MARK: - UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
+extension CustomVideoViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return allCustomMedia.count
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let index = indexPath.row
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: VideoCollectionCell.self), for: indexPath) as! VideoCollectionCell
+        //cell.target = self
+        cell.index = index
+        cell.customVideoData = allCustomMedia[index]
+        cell.initCell(defaultVideos: defaultVideos ?? [])
+        cell.update()
+        return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.frame.size.width / 2.0 - 15
+        return CGSize(width: width, height: 150)
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath.row)
     }
 }

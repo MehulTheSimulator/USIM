@@ -93,6 +93,20 @@ class HomeViewController: UIViewController {
     }
     
     // MARK: -  IBActions -
+//    @IBAction func onClickAddMode(_ sender: UIButton) {
+//        requireConfirm(title: "Add Mode", text: "Are you sure you want to create a new mode?") {
+//            [self] in
+//            if($0) {
+//                let modeKey = "mode_custom_\(UUID().uuidString)"
+//                USIM.application.config.addCustomMode(modeKey: modeKey, name: "New Mode")
+//                let viewKey = "view_custom_\(UUID().uuidString)"
+//                USIM.application.config.addCustomView(modeKey: modeKey, viewKey: viewKey, name: "New View")
+//                USIM.application.setCurrentMode(modeKey: modeKey)
+//                editMode(modeKey: modeKey)
+//            }
+//        }
+//    }
+    
     @IBAction func onClickAddMode(_ sender: UIButton) {
         requireConfirm(title: "Add Mode", text: "Are you sure you want to create a new mode?") {
             [self] in
@@ -113,9 +127,11 @@ class HomeViewController: UIViewController {
             if($0) {
                 let viewKey = "view_custom_\(UUID().uuidString)"
                 USIM.application.config.addCustomView(modeKey: USIM.application.currentMode!, viewKey: viewKey, name: "New View")
-                if let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "ViewControllerEditView") as? ViewControllerEditView {
+                if let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "CustomVideoViewController") as? CustomVideoViewController {
                     secondViewController.targetModeKey = USIM.application.currentMode!
                     secondViewController.targetViewKey = viewKey
+                    secondViewController.modalTransitionStyle = .crossDissolve
+                    secondViewController.modalPresentationStyle = .fullScreen
                     self.present(secondViewController, animated: true, completion: nil)
                 }
             }
@@ -252,8 +268,17 @@ class HomeViewController: UIViewController {
     
     
     // MARK: - Edit
+//    func editMode(modeKey: String) {
+//        if let controller = self.storyboard?.instantiateViewController(withIdentifier: String(describing: UploadVideoViewController.self)) as? UploadVideoViewController {
+//            controller.targetModeKey = modeKey
+//            controller.modalTransitionStyle = .crossDissolve
+//            controller.modalPresentationStyle = .fullScreen
+//            present(controller, animated: true, completion: nil)
+//        }
+//    }
+    
     func editMode(modeKey: String) {
-        if let controller = self.storyboard?.instantiateViewController(withIdentifier: String(describing: UploadVideoViewController.self)) as? UploadVideoViewController {
+        if let controller = self.storyboard?.instantiateViewController(withIdentifier: String(describing: ModeEditViewController.self)) as? ModeEditViewController {
             controller.targetModeKey = modeKey
             controller.modalTransitionStyle = .crossDissolve
             controller.modalPresentationStyle = .fullScreen
@@ -262,9 +287,11 @@ class HomeViewController: UIViewController {
     }
     
     func editView(modeKey: String, viewKey: String) {
-        if let controller = self.storyboard?.instantiateViewController(withIdentifier: "ViewControllerEditView") as? ViewControllerEditView {
+        if let controller = self.storyboard?.instantiateViewController(withIdentifier: "CustomVideoViewController") as? CustomVideoViewController {
             controller.targetModeKey = modeKey
             controller.targetViewKey = viewKey
+            controller.modalTransitionStyle = .crossDissolve
+            controller.modalPresentationStyle = .fullScreen
             present(controller, animated: true, completion: nil)
         }
     }

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1ACA6A551ED5E77AFD01B594 /* Pods_USIM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02D22E07D08C13DB852657B0 /* Pods_USIM.framework */; };
+		2A5700BC29EE770C0013CA9B /* CustomVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5700BB29EE770C0013CA9B /* CustomVideoViewController.swift */; };
+		2AF7ACEE29EDA294008967D4 /* ModeEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF7ACED29EDA294008967D4 /* ModeEditViewController.swift */; };
 		2DD9CC8CA1C543A64E1EC177 /* Pods_USIMTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44E44ECB4D47A11FDE96DD6E /* Pods_USIMTests.framework */; };
 		AE23F83029B320F6009B421A /* LicenseInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE23F82F29B320F6009B421A /* LicenseInformation.swift */; };
 		AE23F83229B32139009B421A /* LicenseUtilityHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE23F83129B32139009B421A /* LicenseUtilityHelper.swift */; };
@@ -137,6 +139,8 @@
 /* Begin PBXFileReference section */
 		02D22E07D08C13DB852657B0 /* Pods_USIM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_USIM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		06612388E6EFC8EA494BB999 /* Pods_USIM_USIMUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_USIM_USIMUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A5700BB29EE770C0013CA9B /* CustomVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomVideoViewController.swift; sourceTree = "<group>"; };
+		2AF7ACED29EDA294008967D4 /* ModeEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeEditViewController.swift; sourceTree = "<group>"; };
 		44E44ECB4D47A11FDE96DD6E /* Pods_USIMTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_USIMTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		587EB035D0FC16EF13B25209 /* Pods-USIM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USIM.debug.xcconfig"; path = "Target Support Files/Pods-USIM/Pods-USIM.debug.xcconfig"; sourceTree = "<group>"; };
 		8077C20487570398C342D817 /* Pods-USIM-USIMUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USIM-USIMUITests.release.xcconfig"; path = "Target Support Files/Pods-USIM-USIMUITests/Pods-USIM-USIMUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -464,6 +468,7 @@
 			isa = PBXGroup;
 			children = (
 				AE367E7429BA695E00F98152 /* ViewControllerEditView.swift */,
+				2AF7ACED29EDA294008967D4 /* ModeEditViewController.swift */,
 			);
 			path = VideoEditViewController;
 			sourceTree = "<group>";
@@ -627,6 +632,7 @@
 			isa = PBXGroup;
 			children = (
 				AEA4496F29A01E12009B7A21 /* UploadVideoViewController.swift */,
+				2A5700BB29EE770C0013CA9B /* CustomVideoViewController.swift */,
 				AE786FB229B3F00F00C5C70F /* UploadVideoViewController+Delegate.swift */,
 			);
 			path = UploadVideoViewController;
@@ -1193,8 +1199,10 @@
 				AECF391729A0C1B500A34C58 /* LicenseViewController.swift in Sources */,
 				AEA8D06D29B92866001D625B /* DeleteModePopupViewController.swift in Sources */,
 				AECF392129A0CCAC00A34C58 /* HomeViewController.swift in Sources */,
+				2A5700BC29EE770C0013CA9B /* CustomVideoViewController.swift in Sources */,
 				AE23F84029B32505009B421A /* Application.swift in Sources */,
 				AEA4499629A0AE3E009B7A21 /* SSMenuButton.swift in Sources */,
+				2AF7ACEE29EDA294008967D4 /* ModeEditViewController.swift in Sources */,
 				AE23F83229B32139009B421A /* LicenseUtilityHelper.swift in Sources */,
 				AEA8D06F29B92E92001D625B /* HomeViewController+Delegate.swift in Sources */,
 				AE367E7229BA675400F98152 /* ViewControllerConfirm.swift in Sources */,

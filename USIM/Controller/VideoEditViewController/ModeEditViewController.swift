@@ -29,7 +29,7 @@ class ModeEditViewController: UIViewController {
             def.name = txtMode?.text ?? "New Mode"
             USIM.application.config.trySaveLocalData()
         }
-        goToVideoPlayer()
+        self.showAlert(message: "Mode name saved")
     }
     
     func goToVideoPlayer() {

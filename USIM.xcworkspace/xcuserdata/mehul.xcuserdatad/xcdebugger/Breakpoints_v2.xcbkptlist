@@ -55,54 +55,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F001A262-1AC4-426F-A742-B428CD62F138"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "USIM/Controller/UploadVideoViewController/CustomVideoViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "viewWillAppear(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A4E59802-0564-4AD0-BEB5-EB045907DFB3"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "USIM/Controller/UploadVideoViewController/CustomVideoViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "viewWillAppear(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "85DB6F50-D3D2-4833-887B-E4E16FE08B36"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "USIM/Application/ApplicationConfig.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "559"
-            endingLineNumber = "559"
-            landmarkName = "getAllCustomMedia(modeKey:viewKey:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "6DE3E27E-39E3-46C1-9B47-71717B5808DD"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -112,24 +64,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "42"
             endingLineNumber = "42"
-            landmarkName = "viewWillAppear(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "344042C0-22CD-4763-B269-F20B09888ED1"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "USIM/Controller/UploadVideoViewController/CustomVideoViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "reloadData()"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -144,8 +80,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "60"
             endingLineNumber = "60"
-            landmarkName = "onClickRemoveBtn(_:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -160,8 +96,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "66"
             endingLineNumber = "66"
-            landmarkName = "onClickBack(_:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -176,8 +112,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "70"
             endingLineNumber = "70"
-            landmarkName = "onClickUploadMedia(_:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
             <Locations>
                <Location
                   uuid = "CB0BF356-99F5-4A0D-9075-4635E719CBB7 - ad35d24e7b241d4e"
@@ -224,8 +160,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "80"
             endingLineNumber = "80"
-            landmarkName = "buttonSetNamePressed(_:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
             <Locations>
                <Location
                   uuid = "6043ED9C-E76D-4628-BE1D-A8B34E88A6F2 - 3ade82955bd71a1b"
@@ -270,13 +206,13 @@
             filePath = "USIM/View/Cells/CollectionCells/VideoCollectionCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "onButtonDelete(_:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "BAF02030-1A26-45EC-8EAA-A2D7A0EA4143 - 33bd533531fefbfd"
+                  uuid = "BAF02030-1A26-45EC-8EAA-A2D7A0EA4143 - 33bd533531fefcc7"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -286,12 +222,12 @@
                   urlString = "file:///Users/mehul/Documents/projects/USIM/Projects/USIM/USIM/View/Cells/CollectionCells/VideoCollectionCell.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "68"
-                  endingLineNumber = "68"
+                  startingLineNumber = "106"
+                  endingLineNumber = "106"
                   offsetFromSymbolStart = "44">
                </Location>
                <Location
-                  uuid = "BAF02030-1A26-45EC-8EAA-A2D7A0EA4143 - 5bdae5da820b8b1e"
+                  uuid = "BAF02030-1A26-45EC-8EAA-A2D7A0EA4143 - 5bdae5da820b8e38"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -301,27 +237,11 @@
                   urlString = "file:///Users/mehul/Documents/projects/USIM/Projects/USIM/USIM/View/Cells/CollectionCells/VideoCollectionCell.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "70"
-                  endingLineNumber = "70"
+                  startingLineNumber = "108"
+                  endingLineNumber = "108"
                   offsetFromSymbolStart = "90">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "79F17D9F-DC3E-42D6-83A3-A4DFCE8D77B5"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "USIM/View/Cells/CollectionCells/VideoCollectionCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "onButtonChooseVideo(_:)"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -334,8 +254,8 @@
             filePath = "USIM/View/Cells/CollectionCells/VideoCollectionCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
             landmarkName = "onClickSetNameBtn(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -350,8 +270,8 @@
             filePath = "USIM/View/Cells/CollectionCells/VideoCollectionCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
             landmarkName = "setToCustom()"
             landmarkType = "7">
          </BreakpointContent>
@@ -369,6 +289,308 @@
             startingLineNumber = "282"
             endingLineNumber = "282"
             landmarkName = "editMode(modeKey:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0021A786-7A6F-49D7-984B-CAA83BB558F3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "USIM/View/Cells/CollectionCells/VideoCollectionCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "setToCustom()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9013FD7E-AC39-448F-A5FB-96A5FCC0B440"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "USIM/Application/ApplicationConfig.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "384"
+            endingLineNumber = "384"
+            landmarkName = "cacheCustomVideo(videoRef:url:customVideoData:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "638FC76E-E4B8-404B-925C-C83E991082C2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "USIM/Application/ApplicationConfig.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "389"
+            endingLineNumber = "389"
+            landmarkName = "cacheCustomVideo(videoRef:url:customVideoData:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "638FC76E-E4B8-404B-925C-C83E991082C2 - aaad985272113cf6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for USIM.ApplicationConfig.cacheCustomVideo(videoRef: USIM.VideoReference, url: Foundation.URL, customVideoData: USIM.CustomVideoData) async throws -&gt; Swift.Optional&lt;__C.UIImage&gt;"
+                  moduleName = "USIM"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mehul/Documents/projects/USIM/Projects/USIM/USIM/Application/ApplicationConfig.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "389"
+                  endingLineNumber = "389"
+                  offsetFromSymbolStart = "883">
+               </Location>
+               <Location
+                  uuid = "638FC76E-E4B8-404B-925C-C83E991082C2 - aaad985272113cf6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for USIM.ApplicationConfig.cacheCustomVideo(videoRef: USIM.VideoReference, url: Foundation.URL, customVideoData: USIM.CustomVideoData) async throws -&gt; Swift.Optional&lt;__C.UIImage&gt;"
+                  moduleName = "USIM"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mehul/Documents/projects/USIM/Projects/USIM/USIM/Application/ApplicationConfig.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "389"
+                  endingLineNumber = "389"
+                  offsetFromSymbolStart = "1459">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C68AAC13-8668-404B-A5AE-28A4E4719717"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "USIM/Application/ApplicationConfig.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "390"
+            endingLineNumber = "390"
+            landmarkName = "cacheCustomVideo(videoRef:url:customVideoData:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "411EBC25-DD54-4FB1-B598-297DB4AB6068"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "USIM/View/Cells/CollectionCells/VideoCollectionCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "onButtonDelete(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3914D6B3-56CF-4B83-AD06-3E86EDC8B32F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "USIM/Application/ApplicationConfig.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "732"
+            endingLineNumber = "732"
+            landmarkName = "removeCustomVideoData(modeKey:localIndex:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3914D6B3-56CF-4B83-AD06-3E86EDC8B32F - 5aaf531ce8532ee5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "USIM.ApplicationConfig.removeCustomVideoData(modeKey: Swift.String, localIndex: Swift.Int) -&gt; ()"
+                  moduleName = "USIM"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mehul/Documents/projects/USIM/Projects/USIM/USIM/Application/ApplicationConfig.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "732"
+                  endingLineNumber = "732"
+                  offsetFromSymbolStart = "158">
+               </Location>
+               <Location
+                  uuid = "3914D6B3-56CF-4B83-AD06-3E86EDC8B32F - 5aaf531ce8532ee5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "USIM.ApplicationConfig.removeCustomVideoData(modeKey: Swift.String, localIndex: Swift.Int) -&gt; ()"
+                  moduleName = "USIM"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mehul/Documents/projects/USIM/Projects/USIM/USIM/Application/ApplicationConfig.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "732"
+                  endingLineNumber = "732"
+                  offsetFromSymbolStart = "196">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "475844E6-DB9F-49A0-8368-D3E721C8E1EF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "USIM/View/Cells/CollectionCells/VideoCollectionCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "setToCustom()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F52D989E-D960-4B38-95D2-3FFD90013987"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "USIM/View/Cells/CollectionCells/VideoCollectionCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "setToCustom()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C108E227-BA6A-4AA9-83B1-BFCC97D1D540"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "USIM/View/Cells/CollectionCells/VideoCollectionCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "setToCustom()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C108E227-BA6A-4AA9-83B1-BFCC97D1D540 - 822b4397d7e28ef2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; () in USIM.VideoCollectionCell.setToCustom() -&gt; ()"
+                  moduleName = "USIM"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mehul/Documents/projects/USIM/Projects/USIM/USIM/View/Cells/CollectionCells/VideoCollectionCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "126"
+                  endingLineNumber = "126"
+                  offsetFromSymbolStart = "803">
+               </Location>
+               <Location
+                  uuid = "C108E227-BA6A-4AA9-83B1-BFCC97D1D540 - 2685f7505bcba3eb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for closure #1 @Sendable () async -&gt; () in USIM.VideoCollectionCell.setToCustom() -&gt; ()"
+                  moduleName = "USIM"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mehul/Documents/projects/USIM/Projects/USIM/USIM/View/Cells/CollectionCells/VideoCollectionCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "126"
+                  endingLineNumber = "126"
+                  offsetFromSymbolStart = "54">
+               </Location>
+               <Location
+                  uuid = "C108E227-BA6A-4AA9-83B1-BFCC97D1D540 - 410c9d92adc5caf0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in USIM.VideoCollectionCell.setToCustom() -&gt; ()"
+                  moduleName = "USIM"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mehul/Documents/projects/USIM/Projects/USIM/USIM/View/Cells/CollectionCells/VideoCollectionCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "126"
+                  endingLineNumber = "126"
+                  offsetFromSymbolStart = "80">
+               </Location>
+               <Location
+                  uuid = "C108E227-BA6A-4AA9-83B1-BFCC97D1D540 - ff73b690f6a864f7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async -&gt; () in USIM.VideoCollectionCell.setToCustom() -&gt; ()"
+                  moduleName = "USIM"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mehul/Documents/projects/USIM/Projects/USIM/USIM/View/Cells/CollectionCells/VideoCollectionCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "126"
+                  endingLineNumber = "126"
+                  offsetFromSymbolStart = "77">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EA4D17FF-10A5-4808-85A2-33FDD50BF933"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "USIM/View/Cells/CollectionCells/VideoCollectionCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "initCell(defaultVideos:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D2EC196E-D765-43DA-A410-BEE3C233AF44"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "USIM/Controller/UploadVideoViewController/CustomVideoViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

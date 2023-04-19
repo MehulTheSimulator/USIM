@@ -21,6 +21,7 @@ class VideoCollectionCell : UICollectionViewCell {
     @IBOutlet weak var txtName: UITextField!
     @IBOutlet weak var txtPoint: UITextField!
     @IBOutlet weak var txtVideo: UITextField!
+    @IBOutlet weak var imgThumbnil: UIImageView!
     
     var pickerPoint: UIPickerView?
     var pickerVideo: UIPickerView?
@@ -28,8 +29,11 @@ class VideoCollectionCell : UICollectionViewCell {
     var defaultVideos: [(String, VideoReference)]?
     var selectedVideo: VideoReference?
     var imagePicker : UIImagePickerController!
+    let playerViewController = AVPlayerViewController()
+
     
     public func initCell(defaultVideos: [(String, VideoReference)]) {
+        
         self.defaultVideos = defaultVideos
         selectedVideo = nil
         pickerPoint = UIPickerView()
@@ -40,19 +44,53 @@ class VideoCollectionCell : UICollectionViewCell {
         pickerVideo?.dataSource = self
         pickerVideo?.delegate = self
         txtVideo?.inputView = pickerVideo
-        txtVideo?.text = "Custom Video"
+        //        txtVideo?.text = "Custom Video"
         imagePicker = UIImagePickerController()
         imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
         imagePicker.mediaTypes = [kUTTypeMovie as String, kUTTypeVideo as String, kUTTypeMPEG2Video as String, kUTTypeMPEG4 as String]
         imagePicker.allowsEditing = false
         imagePicker.delegate = self
         txtPoint?.text = USIM.application.config.getAccessPoint(key: customVideoData!.videoRef.pointKey)?.name ?? ""
+        txtVideo?.text =  customVideoData?.videoRef.instanceKey //customVideoData!.cachedPathRelative
+        let image = USIM.application.config.getCachedImage(imageRef: customVideoData!, cache: target!.cache)
+        imgThumbnil.image  = image
+        
     }
     
     @IBAction func onClickSetNameBtn(_ sender: UIButton) {
         customVideoData?.name = txtName.text ?? "New Video"
         update()
         USIM.application.config.trySaveLocalData()
+    }
+    
+    @IBAction func onClickPlay(_ sender: UIButton) {
+        
+        guard let videoURL = application.config.createCacheVideoUrl(data: customVideoData!) else {
+            target?.showAlert(message: "Video not available")
+            return
+        }
+        
+        let player = AVPlayer(url: videoURL)
+        playerViewController.player = player
+        // Show playback controls
+        playerViewController.showsPlaybackControls = true
+
+        // Customize playback controls
+        playerViewController.videoGravity = .resizeAspectFill
+        playerViewController.allowsPictureInPicturePlayback = true
+        // Preload video for faster playback
+        player.currentItem?.preferredForwardBufferDuration = 5
+
+        // Enable low-latency playback
+        player.automaticallyWaitsToMinimizeStalling = false
+
+        // Optimize for battery consumption
+        player.usesExternalPlaybackWhileExternalScreenIsActive = true
+
+        target?.present(playerViewController, animated: true) {
+            player.play()
+        }
+
     }
     
     func requireConfirm(title: String, text: String, _ callback: @escaping (Bool) -> ()) {
@@ -76,13 +114,6 @@ class VideoCollectionCell : UICollectionViewCell {
     }
     
     @IBAction func onButtonChooseVideo(_ sender: LoaderButton) {
-        /*let app = RFIDVideoPlayer.application
-         if let modeKeyValue = modeKey {
-         if let viewKeyValue = viewKey {
-         app.setCurrentView(modeKey: modeKeyValue, viewKey: viewKeyValue)
-         target?.updateView()
-         }
-         }*/
         setToCustom()
     }
     
@@ -91,9 +122,15 @@ class VideoCollectionCell : UICollectionViewCell {
             Task {
                 if let url = USIM.application.config.getCachedVideoURL(videoRef: source) {
                     USIM.RemoteLog("Copying from: \(url)")
-                    await USIM.application.config.cacheCustomVideo(videoRef: customVideoData!.videoRef, url: url, customVideoData: customVideoData!, successCompletion: { value in
-                        
-                    })
+                    do {
+                        let image = try await USIM.application.config.cacheCustomVideo(videoRef: customVideoData!.videoRef, url: url, customVideoData: customVideoData!)
+                        DispatchQueue.main.async {
+                            self.imgThumbnil.image = image
+                            self.target?.showAlert(message: "Cache video uploaded successfully")
+                        }
+                    } catch {
+                        print("\(error)")
+                    }
                 }
             }
         } else {
@@ -101,17 +138,9 @@ class VideoCollectionCell : UICollectionViewCell {
             documentPickerTargetVideoRef = customVideoData!.videoRef
             self.target?.present(imagePicker, animated: true)
             
-//            self.present(imagePicker, animated: true, completion: nil)
-            
-//            let supportedTypes: [UTType] = [.livePhoto, .video, .movie, .audiovisualContent, .mpeg4Movie, .quickTimeMovie, .avi, .mpeg, .mpeg2TransportStream]
-//            let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: supportedTypes, asCopy: true)
-//            documentPicker.delegate = self
-//            documentPicker.shouldShowFileExtensions = true
-//            documentPicker.modalPresentationStyle = .overFullScreen
-//            self.target?.present(documentPicker, animated: true)
         }
     }
-
+    
     public func update() {
         /*
          button?.setTitle((modeKey != nil && viewKey != nil ? app.config.getViewDefinition(modeKey: modeKey!, viewKey: viewKey!)?.name : nil) ?? "", for: .normal)
@@ -119,7 +148,7 @@ class VideoCollectionCell : UICollectionViewCell {
          */
         txtName?.text = customVideoData!.name
         let app = USIM.application
-//        pickerView?.selectRow(app.config.getViewIndex(modeKey: customVideoData!.videoRef.modeKey, viewKey: customVideoData!.videoRef.viewKey) ?? 0, inComponent: 0, animated: false)
+        //        pickerView?.selectRow(app.config.getViewIndex(modeKey: customVideoData!.videoRef.modeKey, viewKey: customVideoData!.videoRef.viewKey) ?? 0, inComponent: 0, animated: false)
         pickerPoint?.selectRow(app.config.getAccessPointIndex(pointKey: customVideoData!.videoRef.pointKey) ?? 0, inComponent: 0, animated: false)
     }
 }
@@ -130,40 +159,24 @@ extension VideoCollectionCell : UIImagePickerControllerDelegate, UINavigationCon
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         let mediaType = info[UIImagePickerController.InfoKey.mediaType]
-                                       as! NSString
+        as! NSString
         if mediaType.isEqual(to: kUTTypeMovie as String) {
             let url = info[UIImagePickerController.InfoKey.mediaURL]
             if documentPickerTargetVideoRef != nil {
                 Task {
-                    await USIM.application.config.cacheCustomVideo(videoRef: customVideoData!.videoRef, url: url as! URL, customVideoData: customVideoData!, successCompletion: { value in
-                        self.target?.showAlert(message: "Cache video uploaded successfully")
-                    })
+                    let image = try await USIM.application.config.cacheCustomVideo(videoRef: customVideoData!.videoRef, url: url as! URL, customVideoData: customVideoData!)
+                    self.imgThumbnil.image = image
+                    self.target?.showAlert(message: "Cache video uploaded successfully")
                 }
             }
         }
         picker.dismiss(animated: true)
     }
-
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true)
     }
 }
-
-//extension VideoCollectionCell : UIDocumentPickerDelegate {
-//    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
-//        if let videoRef = documentPickerTargetVideoRef {
-//            Task {
-//                await USIM.application.config.cacheCustomVideo(videoRef: customVideoData!.videoRef, url: url, customVideoData: customVideoData!)
-//            }
-//        }
-//        documentPickerTargetVideoRef = nil
-//        controller.dismiss(animated: true)
-//    }
-//
-//    func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
-//        documentPickerTargetVideoRef = nil
-//    }
-//}
 
 extension VideoCollectionCell : UIPickerViewDataSource, UIPickerViewDelegate {
     
@@ -206,3 +219,20 @@ extension VideoCollectionCell : UIPickerViewDataSource, UIPickerViewDelegate {
     
 }
 
+extension AVAsset {
+    
+    func generateThumbnail() async throws -> UIImage? {
+        let imageGenerator = AVAssetImageGenerator(asset: self)
+        let time = CMTime(seconds: 0.0, preferredTimescale: 600)
+        let times = [NSValue(time: time)]
+        return await withCheckedContinuation { continuation in
+            imageGenerator.generateCGImagesAsynchronously(forTimes: times, completionHandler: { _, image, _, _, _ in
+                if let image = image {
+                    continuation.resume(returning: UIImage(cgImage: image))
+                } else {
+                    continuation.resume(returning: nil)
+                }
+            })
+        }
+    }
+}

@@ -16,6 +16,7 @@ class CustomVideoViewController: UIViewController {
     // MARK: -  Properties -
     var defaultVideos: [(String, VideoReference)]?
     var allCustomMedia: [CustomVideoData] = []
+    var cache: NSCache<NSString, UIImage>!
     
     public var targetModeKey: String?
     public var targetViewKey: String?
@@ -24,7 +25,7 @@ class CustomVideoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.cache = NSCache()
         if let videoCollectionView {
             setupCollectionView(videoCollectionView)
         }
@@ -35,8 +36,8 @@ class CustomVideoViewController: UIViewController {
         super.viewWillAppear(animated)
         let app = USIM.application
         self.txtView.text = app.config.getViewDefinition(modeKey: targetModeKey!, viewKey: targetViewKey!)?.name ?? ""
-        let isNotCustom = app.config.isModeNotCustom(modeKey: targetModeKey!)
-        txtView?.isUserInteractionEnabled = !isNotCustom
+//        let isNotCustom = app.config.isModeNotCustom(modeKey: targetModeKey!)
+//        txtView?.isUserInteractionEnabled = !isNotCustom
        // btnSetName.isEnabled = !isNotCustom
         defaultVideos = []
         for ref in app.config.getDefaultVideos() {
@@ -58,7 +59,8 @@ class CustomVideoViewController: UIViewController {
         requireConfirm(title: "Add Media", text: "Are you sure you want to add a new custom video?") {
             [self] in
             if($0) {
-                USIM.application.config.addCustomVideoData(videoRef: VideoReference(modeKey: targetModeKey!, viewKey: USIM.application.config.getDefaultView(modeKey: targetModeKey!) ?? "idk", pointKey: USIM.application.config.getAccessPoint(index: 0)?.key ?? "idk", instanceKey: UUID().uuidString), name: "New Video", cachedPathRelative: nil)
+//                USIM.application.config.addCustomVideoData(videoRef: VideoReference(modeKey: targetModeKey!, viewKey: USIM.application.config.getDefaultView(modeKey: targetModeKey!) ?? "idk", pointKey: USIM.application.config.getAccessPoint(index: 0)?.key ?? "idk", instanceKey: UUID().uuidString), name: "New Video", cachedPathRelative: nil)
+                USIM.application.config.addCustomVideoData(videoRef: VideoReference(modeKey: targetModeKey!, viewKey: targetViewKey ?? "idk", pointKey: USIM.application.config.getAccessPoint(index: 0)?.key ?? "idk", instanceKey: UUID().uuidString), name: "New Video", cachedPathRelative: nil)
                     reloadData()
             }
         }
@@ -69,6 +71,7 @@ class CustomVideoViewController: UIViewController {
             def.name = txtView.text ?? "New View"
             USIM.application.config.trySaveLocalData()
         }
+        self.showAlert(message: "View name saved")
     }
     
     // MARK: -  Methods -
@@ -111,7 +114,7 @@ extension CustomVideoViewController: UICollectionViewDelegate, UICollectionViewD
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.frame.size.width / 2.0 - 15
+        let width = collectionView.frame.size.width / 2.0
         return CGSize(width: width, height: 150)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

@@ -58,7 +58,6 @@
 		AE2BA90629A29B55008C911E /* TagModeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2BA90529A29B55008C911E /* TagModeCollectionCell.swift */; };
 		AE2BA90A29A29C34008C911E /* TagModeCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE2BA90829A29C34008C911E /* TagModeCollectionCell.xib */; };
 		AE367E7229BA675400F98152 /* ViewControllerConfirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE367E7129BA675400F98152 /* ViewControllerConfirm.swift */; };
-		AE367E7529BA695E00F98152 /* ViewControllerEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE367E7429BA695E00F98152 /* ViewControllerEditView.swift */; };
 		AE367E7729BA769300F98152 /* preVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = AE367E7629BA769300F98152 /* preVideo.mp4 */; };
 		AE663B32298C615300A87DC7 /* USIMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE663B31298C615300A87DC7 /* USIMTests.swift */; };
 		AE663B3C298C615300A87DC7 /* USIMUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE663B3B298C615300A87DC7 /* USIMUITests.swift */; };
@@ -75,7 +74,6 @@
 		AE786FAB29B3DAD000C5C70F /* TermViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE786FAA29B3DAD000C5C70F /* TermViewController.swift */; };
 		AE786FAD29B3DADA00C5C70F /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE786FAC29B3DADA00C5C70F /* HelpViewController.swift */; };
 		AE786FB029B3EB8100C5C70F /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE786FAF29B3EB8100C5C70F /* UIImage.swift */; };
-		AE786FB329B3F00F00C5C70F /* UploadVideoViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE786FB229B3F00F00C5C70F /* UploadVideoViewController+Delegate.swift */; };
 		AE786FB829B4C88900C5C70F /* TagViewsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE786FB629B4C88900C5C70F /* TagViewsCollectionCell.swift */; };
 		AE786FB929B4C88900C5C70F /* TagViewsCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE786FB729B4C88900C5C70F /* TagViewsCollectionCell.xib */; };
 		AE8D19B829A6BEE500A3B4C1 /* DeleteMediaPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D19B729A6BEE500A3B4C1 /* DeleteMediaPopupViewController.swift */; };
@@ -87,7 +85,6 @@
 		AEA3315E29A6A750003AC772 /* UploadMediaPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA3315D29A6A750003AC772 /* UploadMediaPopupViewController.swift */; };
 		AEA4496A299FFDF7009B7A21 /* AccessPointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA44969299FFDF7009B7A21 /* AccessPointViewController.swift */; };
 		AEA4496E299FFE76009B7A21 /* AccessPointTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA4496D299FFE76009B7A21 /* AccessPointTableCell.swift */; };
-		AEA4497029A01E12009B7A21 /* UploadVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA4496F29A01E12009B7A21 /* UploadVideoViewController.swift */; };
 		AEA4497629A09201009B7A21 /* VideoCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA4497429A09201009B7A21 /* VideoCollectionCell.swift */; };
 		AEA4497729A09201009B7A21 /* VideoCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEA4497529A09201009B7A21 /* VideoCollectionCell.xib */; };
 		AEA4497A29A092FF009B7A21 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA4497929A092FF009B7A21 /* UICollectionView.swift */; };
@@ -193,7 +190,6 @@
 		AE2BA90529A29B55008C911E /* TagModeCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagModeCollectionCell.swift; sourceTree = "<group>"; };
 		AE2BA90829A29C34008C911E /* TagModeCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagModeCollectionCell.xib; sourceTree = "<group>"; };
 		AE367E7129BA675400F98152 /* ViewControllerConfirm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerConfirm.swift; sourceTree = "<group>"; };
-		AE367E7429BA695E00F98152 /* ViewControllerEditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerEditView.swift; sourceTree = "<group>"; };
 		AE367E7629BA769300F98152 /* preVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = preVideo.mp4; sourceTree = "<group>"; };
 		AE663B17298C615100A87DC7 /* USIM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = USIM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE663B28298C615300A87DC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -214,7 +210,6 @@
 		AE786FAA29B3DAD000C5C70F /* TermViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermViewController.swift; sourceTree = "<group>"; };
 		AE786FAC29B3DADA00C5C70F /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		AE786FAF29B3EB8100C5C70F /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
-		AE786FB229B3F00F00C5C70F /* UploadVideoViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UploadVideoViewController+Delegate.swift"; sourceTree = "<group>"; };
 		AE786FB629B4C88900C5C70F /* TagViewsCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewsCollectionCell.swift; sourceTree = "<group>"; };
 		AE786FB729B4C88900C5C70F /* TagViewsCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagViewsCollectionCell.xib; sourceTree = "<group>"; };
 		AE8D19B729A6BEE500A3B4C1 /* DeleteMediaPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteMediaPopupViewController.swift; sourceTree = "<group>"; };
@@ -226,7 +221,6 @@
 		AEA3315D29A6A750003AC772 /* UploadMediaPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadMediaPopupViewController.swift; sourceTree = "<group>"; };
 		AEA44969299FFDF7009B7A21 /* AccessPointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessPointViewController.swift; sourceTree = "<group>"; };
 		AEA4496D299FFE76009B7A21 /* AccessPointTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessPointTableCell.swift; sourceTree = "<group>"; };
-		AEA4496F29A01E12009B7A21 /* UploadVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadVideoViewController.swift; sourceTree = "<group>"; };
 		AEA4497429A09201009B7A21 /* VideoCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCollectionCell.swift; sourceTree = "<group>"; };
 		AEA4497529A09201009B7A21 /* VideoCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoCollectionCell.xib; sourceTree = "<group>"; };
 		AEA4497929A092FF009B7A21 /* UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
@@ -467,7 +461,6 @@
 		AE367E7329BA692D00F98152 /* VideoEditViewController */ = {
 			isa = PBXGroup;
 			children = (
-				AE367E7429BA695E00F98152 /* ViewControllerEditView.swift */,
 				2AF7ACED29EDA294008967D4 /* ModeEditViewController.swift */,
 			);
 			path = VideoEditViewController;
@@ -631,9 +624,7 @@
 		AE786FB129B3EFF700C5C70F /* UploadVideoViewController */ = {
 			isa = PBXGroup;
 			children = (
-				AEA4496F29A01E12009B7A21 /* UploadVideoViewController.swift */,
 				2A5700BB29EE770C0013CA9B /* CustomVideoViewController.swift */,
-				AE786FB229B3F00F00C5C70F /* UploadVideoViewController+Delegate.swift */,
 			);
 			path = UploadVideoViewController;
 			sourceTree = "<group>";
@@ -1195,7 +1186,6 @@
 				AE663B5C298C61D600A87DC7 /* AppDelegate.swift in Sources */,
 				AE23F85C29B32BE4009B421A /* LogUtilityHelper.swift in Sources */,
 				AE786FA829B3C90700C5C70F /* UpdateConfiguViewController.swift in Sources */,
-				AEA4497029A01E12009B7A21 /* UploadVideoViewController.swift in Sources */,
 				AECF391729A0C1B500A34C58 /* LicenseViewController.swift in Sources */,
 				AEA8D06D29B92866001D625B /* DeleteModePopupViewController.swift in Sources */,
 				AECF392129A0CCAC00A34C58 /* HomeViewController.swift in Sources */,
@@ -1221,11 +1211,9 @@
 				AE23F85829B32732009B421A /* RuntimeErrorHandling.swift in Sources */,
 				AE663B5D298C61D600A87DC7 /* SceneDelegate.swift in Sources */,
 				AE2BA90629A29B55008C911E /* TagModeCollectionCell.swift in Sources */,
-				AE786FB329B3F00F00C5C70F /* UploadVideoViewController+Delegate.swift in Sources */,
 				AEA3315E29A6A750003AC772 /* UploadMediaPopupViewController.swift in Sources */,
 				AE23F83029B320F6009B421A /* LicenseInformation.swift in Sources */,
 				AE23F85F29B32D13009B421A /* EndPoints.swift in Sources */,
-				AE367E7529BA695E00F98152 /* ViewControllerEditView.swift in Sources */,
 				AEA4497629A09201009B7A21 /* VideoCollectionCell.swift in Sources */,
 				AEC6A29329A2140000EBC18D /* GSPlayerControlUIView.swift in Sources */,
 				AE23F84D29B3264C009B421A /* VideoLocalData.swift in Sources */,
@@ -1410,7 +1398,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.5;
+				CURRENT_PROJECT_VERSION = 1.6;
 				DEVELOPMENT_TEAM = W7HC44PV7L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = USIM/Info.plist;
@@ -1447,7 +1435,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.5;
+				CURRENT_PROJECT_VERSION = 1.6;
 				DEVELOPMENT_TEAM = W7HC44PV7L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = USIM/Info.plist;

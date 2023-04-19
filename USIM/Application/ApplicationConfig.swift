@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import AVFoundation
 
 public class ApplicationConfig {
     
@@ -372,10 +373,10 @@ public class ApplicationConfig {
         }
     }*/
     
-    public func cacheCustomVideo(videoRef: VideoReference, url: URL, customVideoData: CustomVideoData, successCompletion: @escaping (Any)->Void) async {
-            
+    public func cacheCustomVideo(videoRef: VideoReference, url: URL, customVideoData: CustomVideoData) async throws -> UIImage? {
+
         uncacheCustomVideoData(customVideoData: customVideoData)
-        
+
         do {
             try FileHelper.mkdirs(folderCachedCustomVideos)
             let (data, _) = try await URLSession.shared.data(from: url)
@@ -383,8 +384,15 @@ public class ApplicationConfig {
             let cachedURL = FileHelper.file(folderCachedCustomVideos, cachedPathRelative)
             try data.write(to: cachedURL)
             customVideoData.cachedPathRelative = cachedPathRelative
+            let image = try await AVAsset(url: url).generateThumbnail()
+            let cachedimageURL = FileHelper.file(folderCachedCustomVideos, "\(cachedPathRelative).png")
+            let imageData = image!.jpegData(compressionQuality: 1.0)!
+            try imageData.write(to: cachedimageURL)
             trySaveLocalData()
-            AF.upload(multipartFormData: { multipartFormData in
+            return image
+
+
+            /*AF.upload(multipartFormData: { multipartFormData in
                 multipartFormData.append(url, withName: "video", fileName: url.lastPathComponent, mimeType: "video/\(url.pathExtension)")
                 for (key, value) in EndPoints.cachVideo().1 {
                     multipartFormData.append(value.data(using: .utf8)!, withName: key)
@@ -399,17 +407,18 @@ public class ApplicationConfig {
                 case .failure(let error):
                     print("Error: \(error.localizedDescription)")
                 }
-            }
-            
+            }*/
+
         } catch let error {
             USIM.RemoteLog("Unable to cache video \(videoRef.toString()): \(error)")
+            return nil
         }
+
     }
-    
+
     public func setVideoToDefault(videoRef: VideoReference) {
         
         let vd = getLocalVideoData(videoRef)
-        
         uncacheCustomVideo(videoRef: videoRef, videoData: vd)
         trySaveLocalData()
     }
@@ -513,6 +522,34 @@ public class ApplicationConfig {
         return videos
     }
     
+    public func createCacheVideoUrl(data: CustomVideoData) -> URL? {
+        if let pr =  data.cachedPathRelative {
+            return FileHelper.file(folderCachedCustomVideos, pr)
+        }
+        return nil
+    }
+    
+    public func getCachedImage(imageRef: CustomVideoData, cache: NSCache<NSString, UIImage>)  -> UIImage? {
+        RemoteLog("Let's try get images for \(imageRef)!")
+        if let pr = imageRef.cachedPathRelative {
+            RemoteLog("We have a cached path! \(FileHelper.file(folderCachedCustomVideos, pr).absoluteString)")
+            
+            let imagePath  = FileHelper.file(folderCachedCustomVideos, "\(pr).png").path
+            if FileManager.default.fileExists(atPath: imagePath) {
+                if let image = cache.object(forKey: imagePath as NSString) {
+                    RemoteLog("cached image!")
+                    return image
+                } else {
+                    RemoteLog("uncached image!")
+                    let image = UIImage(contentsOfFile: imagePath)
+                    cache.setObject(image!, forKey: imagePath as NSString)
+                    return image
+                }
+            }
+        }
+        return nil
+    }
+    
     public func getCachedVideoURL(videoRef: VideoReference) -> URL? {
         
         RemoteLog("Let's try get videos for \(videoRef)!")
@@ -567,7 +604,7 @@ public class ApplicationConfig {
     
     public func addCustomVideoData(videoRef: VideoReference, name: String, cachedPathRelative: String?) {
         
-        var d = CustomVideoData(videoRef: videoRef, name: name)
+        let d = CustomVideoData(videoRef: videoRef, name: name)
         d.cachedPathRelative = cachedPathRelative
         localData.customVideoDatas.append(d)
         trySaveLocalData()

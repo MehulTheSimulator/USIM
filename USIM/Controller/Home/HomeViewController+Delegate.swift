@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -89,3 +90,63 @@ extension HomeViewController: RFIDInputHandlerCallback {
         }
     }
 }
+
+extension HomeViewController : UNUserNotificationCenterDelegate {
+    func scheduleNotifications() {
+        
+        scheduleNotification(adding: .month, value: -2, identifier: "twoMonthsExpiry")
+        scheduleNotification(adding: .month, value: -1, identifier: "oneMonthExpiry")
+        scheduleNotification(adding: .day, value: -15, identifier: "fifteenDaysExpiry")
+        scheduleNotification(adding: .day, value: 1, identifier: "sameDayExpiry")
+
+//        let content = UNMutableNotificationContent()
+//               content.title = "New Message"
+//               content.body = "You have a new message from John"
+//               content.sound = UNNotificationSound.default
+//
+//               // Set the trigger for the notification (in 5 seconds)
+//               let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+//
+//               // Create the notification request
+//               let request = UNNotificationRequest(identifier: "newMessage", content: content, trigger: trigger)
+//
+//               // Add the notification request to the notification center
+//               UNUserNotificationCenter.current().add(request) { error in
+//                   if let error = error {
+//                       print("Error: \(error.localizedDescription)")
+//                   } else {
+//                       print("Notification scheduled")
+//                   }
+//               }
+        
+        // check if the notification with this identifier has already been scheduled
+            UNUserNotificationCenter.current().getPendingNotificationRequests { requests in
+                let identifiers = requests.map { $0.identifier }
+                debugPrint("notification = \(identifiers)")
+//                if !identifiers.contains(identifier) {
+//                    UNUserNotificationCenter.current().add(Request)
+//                }
+            }
+    }
+
+    func scheduleNotification(adding: Calendar.Component, value: Int, identifier: String) {
+        // Schedule notification before expiry
+        let content = UNMutableNotificationContent()
+        content.title = "Your license will expire soon!"
+        content.body = "Renew your license before it expires to avoid any inconvenience."
+
+        let expiryDate = USIM.application.config.getLicenseInfo()?.endDate ?? Date()
+        let TriggerDate = Calendar.current.date(byAdding: adding, value: value, to: expiryDate)!
+        let Trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: TriggerDate), repeats: false)
+        let Request = UNNotificationRequest(identifier: identifier, content: content, trigger: Trigger)
+        UNUserNotificationCenter.current().add(Request)
+    }
+    
+    // Handle the notification when it is displayed
+        func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+            print("Notification received")
+            completionHandler()
+        }
+    
+}
+

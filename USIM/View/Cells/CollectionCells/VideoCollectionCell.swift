@@ -74,19 +74,11 @@ class VideoCollectionCell : UICollectionViewCell {
         playerViewController.player = player
         // Show playback controls
         playerViewController.showsPlaybackControls = true
-
-        // Customize playback controls
         playerViewController.videoGravity = .resizeAspectFill
         playerViewController.allowsPictureInPicturePlayback = true
-        // Preload video for faster playback
         player.currentItem?.preferredForwardBufferDuration = 5
-
-        // Enable low-latency playback
         player.automaticallyWaitsToMinimizeStalling = false
-
-        // Optimize for battery consumption
         player.usesExternalPlaybackWhileExternalScreenIsActive = true
-
         target?.present(playerViewController, animated: true) {
             player.play()
         }

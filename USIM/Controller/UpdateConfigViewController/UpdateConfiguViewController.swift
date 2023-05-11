@@ -26,7 +26,23 @@ class UpdateConfiguViewController: UIViewController {
     }
     
     // MARK: - IBActions -
+    
+    @IBAction func onClickUpdateTool(_ sender: UIButton) {
+        let tip = Toolkit()
+        tip.showTipView(sender: sender, text: "By updating the configuration, you can stay up-to-date with the latest system updates, including new views, modes, and ultrasound features. This will allow you to use the app more efficiently and effectively.")
+    }
+    
     @IBAction func onClickUpdate(_ sender: LoaderButton) {
+        
+        guard Connectivity.isConnectedToNetwork() else{
+            if let url = URL(string: UIApplication.openSettingsURLString) {
+                if !UIApplication.shared.canOpenURL(url) {
+                    return
+                }
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+            return
+        }
         sender.setLoading(true, "Ready")
         Task {
             do {

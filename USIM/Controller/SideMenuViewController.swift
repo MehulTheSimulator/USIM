@@ -14,6 +14,7 @@ struct SideMenuTitle {
     static var licenseUpdate = "License Update"
     static var termsCondition = "Terms & Conditions"
     static var help = "Help"
+    static var version = "Version"
 }
 
 class SideMenuViewController: SSSideMenuContainerViewController {
@@ -44,13 +45,15 @@ class SideMenuViewController: SSSideMenuContainerViewController {
                                           "second",
                                           "third",
                                           "logout",
-                                          "logout")
+                                          "logout",
+                                          "version")
         menuCellConfig.titles = [SideMenuTitle.home,
                                  SideMenuTitle.softwareUpdate,
                                  SideMenuTitle.accessPoint,
                                  SideMenuTitle.licenseUpdate,
                                  SideMenuTitle.termsCondition,
-                                 SideMenuTitle.help]
+                                 SideMenuTitle.help,
+                                 SideMenuTitle.version.getVersionAndBuildnumber()]
         menuCellConfig.numberOfOptions = menuCellConfig.titles.count
         return menuCellConfig
     }()

@@ -151,102 +151,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BAF02030-1A26-45EC-8EAA-A2D7A0EA4143"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "USIM/View/Cells/CollectionCells/VideoCollectionCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
-            landmarkName = "onButtonDelete(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "BAF02030-1A26-45EC-8EAA-A2D7A0EA4143 - 33bd533531fefcc7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "USIM.VideoCollectionCell.onButtonDelete(Any) -&gt; ()"
-                  moduleName = "USIM"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mehul/Documents/projects/USIM/Projects/USIM/USIM/View/Cells/CollectionCells/VideoCollectionCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "106"
-                  endingLineNumber = "106"
-                  offsetFromSymbolStart = "64">
-               </Location>
-               <Location
-                  uuid = "BAF02030-1A26-45EC-8EAA-A2D7A0EA4143 - 5bdae5da820b8e38"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Bool) -&gt; () in USIM.VideoCollectionCell.onButtonDelete(Any) -&gt; ()"
-                  moduleName = "USIM"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mehul/Documents/projects/USIM/Projects/USIM/USIM/View/Cells/CollectionCells/VideoCollectionCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "108"
-                  endingLineNumber = "108"
-                  offsetFromSymbolStart = "96">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F1731F5C-87F8-4B12-BB16-6E95797072B0"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "USIM/View/Cells/CollectionCells/VideoCollectionCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
-            landmarkName = "setToCustom()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D1A30A1B-0230-4298-81DB-21A05B3CF34C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "USIM/Controller/Home/HomeViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "265"
-            endingLineNumber = "265"
-            landmarkName = "editMode(modeKey:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0021A786-7A6F-49D7-984B-CAA83BB558F3"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "USIM/View/Cells/CollectionCells/VideoCollectionCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
-            landmarkName = "setToCustom()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "9013FD7E-AC39-448F-A5FB-96A5FCC0B440"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -288,7 +192,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "389"
                   endingLineNumber = "389"
-                  offsetFromSymbolStart = "648">
+                  offsetFromSymbolStart = "881">
                </Location>
                <Location
                   uuid = "638FC76E-E4B8-404B-925C-C83E991082C2 - aaad985272113cf6"
@@ -303,7 +207,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "389"
                   endingLineNumber = "389"
-                  offsetFromSymbolStart = "1148">
+                  offsetFromSymbolStart = "1457">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -321,22 +225,6 @@
             startingLineNumber = "390"
             endingLineNumber = "390"
             landmarkName = "cacheCustomVideo(videoRef:url:customVideoData:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "411EBC25-DD54-4FB1-B598-297DB4AB6068"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "USIM/View/Cells/CollectionCells/VideoCollectionCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "onButtonDelete(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -368,7 +256,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "732"
                   endingLineNumber = "732"
-                  offsetFromSymbolStart = "68">
+                  offsetFromSymbolStart = "158">
                </Location>
                <Location
                   uuid = "3914D6B3-56CF-4B83-AD06-3E86EDC8B32F - 5aaf531ce8532ee5"
@@ -383,225 +271,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "732"
                   endingLineNumber = "732"
-                  offsetFromSymbolStart = "104">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "475844E6-DB9F-49A0-8368-D3E721C8E1EF"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "USIM/View/Cells/CollectionCells/VideoCollectionCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
-            landmarkName = "setToCustom()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F52D989E-D960-4B38-95D2-3FFD90013987"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "USIM/View/Cells/CollectionCells/VideoCollectionCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
-            landmarkName = "setToCustom()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C108E227-BA6A-4AA9-83B1-BFCC97D1D540"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "USIM/View/Cells/CollectionCells/VideoCollectionCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
-            landmarkName = "setToCustom()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "C108E227-BA6A-4AA9-83B1-BFCC97D1D540 - 822b4397d7e28ef2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; () in USIM.VideoCollectionCell.setToCustom() -&gt; ()"
-                  moduleName = "USIM"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mehul/Documents/projects/USIM/Projects/USIM/USIM/View/Cells/CollectionCells/VideoCollectionCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "126"
-                  endingLineNumber = "126"
-                  offsetFromSymbolStart = "692">
-               </Location>
-               <Location
-                  uuid = "C108E227-BA6A-4AA9-83B1-BFCC97D1D540 - 2685f7505bcba3eb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) await resume partial function for closure #1 @Sendable () async -&gt; () in USIM.VideoCollectionCell.setToCustom() -&gt; ()"
-                  moduleName = "USIM"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mehul/Documents/projects/USIM/Projects/USIM/USIM/View/Cells/CollectionCells/VideoCollectionCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "126"
-                  endingLineNumber = "126"
-                  offsetFromSymbolStart = "44">
-               </Location>
-               <Location
-                  uuid = "C108E227-BA6A-4AA9-83B1-BFCC97D1D540 - 410c9d92adc5caf0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in USIM.VideoCollectionCell.setToCustom() -&gt; ()"
-                  moduleName = "USIM"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mehul/Documents/projects/USIM/Projects/USIM/USIM/View/Cells/CollectionCells/VideoCollectionCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "126"
-                  endingLineNumber = "126"
-                  offsetFromSymbolStart = "60">
-               </Location>
-               <Location
-                  uuid = "C108E227-BA6A-4AA9-83B1-BFCC97D1D540 - ff73b690f6a864f7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async -&gt; () in USIM.VideoCollectionCell.setToCustom() -&gt; ()"
-                  moduleName = "USIM"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mehul/Documents/projects/USIM/Projects/USIM/USIM/View/Cells/CollectionCells/VideoCollectionCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "126"
-                  endingLineNumber = "126"
-                  offsetFromSymbolStart = "80">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2CF113FE-991B-4053-9907-3755CE28A473"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "USIM/Application/ApplicationConfig.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
-            landmarkName = "updateRemoteConfigAsync(statusCompletion:percentageCompletion:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "2CF113FE-991B-4053-9907-3755CE28A473 - b449ca5e54b3ae3"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(8) suspend resume partial function for USIM.ApplicationConfig.updateRemoteConfigAsync(statusCompletion: (Swift.String) async -&gt; (), percentageCompletion: (Swift.Float) async -&gt; ()) async throws -&gt; ()"
-                  moduleName = "USIM"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mehul/Documents/projects/USIM/Projects/USIM/USIM/Application/ApplicationConfig.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "119"
-                  endingLineNumber = "119"
-                  offsetFromSymbolStart = "600">
-               </Location>
-               <Location
-                  uuid = "2CF113FE-991B-4053-9907-3755CE28A473 - 376666a6a900655e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(9) await resume partial function for USIM.ApplicationConfig.updateRemoteConfigAsync(statusCompletion: (Swift.String) async -&gt; (), percentageCompletion: (Swift.Float) async -&gt; ()) async throws -&gt; ()"
-                  moduleName = "USIM"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mehul/Documents/projects/USIM/Projects/USIM/USIM/Application/ApplicationConfig.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "119"
-                  endingLineNumber = "119"
-                  offsetFromSymbolStart = "40">
-               </Location>
-               <Location
-                  uuid = "2CF113FE-991B-4053-9907-3755CE28A473 - 800d1b0d4c09462c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(10) suspend resume partial function for USIM.ApplicationConfig.updateRemoteConfigAsync(statusCompletion: (Swift.String) async -&gt; (), percentageCompletion: (Swift.Float) async -&gt; ()) async throws -&gt; ()"
-                  moduleName = "USIM"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mehul/Documents/projects/USIM/Projects/USIM/USIM/Application/ApplicationConfig.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "108"
-                  endingLineNumber = "108"
-                  offsetFromSymbolStart = "76">
-               </Location>
-               <Location
-                  uuid = "2CF113FE-991B-4053-9907-3755CE28A473 - 800d1b0d4c0944b9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(10) suspend resume partial function for USIM.ApplicationConfig.updateRemoteConfigAsync(statusCompletion: (Swift.String) async -&gt; (), percentageCompletion: (Swift.Float) async -&gt; ()) async throws -&gt; ()"
-                  moduleName = "USIM"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mehul/Documents/projects/USIM/Projects/USIM/USIM/Application/ApplicationConfig.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "119"
-                  endingLineNumber = "119"
-                  offsetFromSymbolStart = "188">
-               </Location>
-               <Location
-                  uuid = "2CF113FE-991B-4053-9907-3755CE28A473 - fb1e497d8529802e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(12) suspend resume partial function for USIM.ApplicationConfig.updateRemoteConfigAsync(statusCompletion: (Swift.String) async -&gt; (), percentageCompletion: (Swift.Float) async -&gt; ()) async throws -&gt; ()"
-                  moduleName = "USIM"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mehul/Documents/projects/USIM/Projects/USIM/USIM/Application/ApplicationConfig.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "108"
-                  endingLineNumber = "108"
-                  offsetFromSymbolStart = "76">
-               </Location>
-               <Location
-                  uuid = "2CF113FE-991B-4053-9907-3755CE28A473 - fb1e497d852982bb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(12) suspend resume partial function for USIM.ApplicationConfig.updateRemoteConfigAsync(statusCompletion: (Swift.String) async -&gt; (), percentageCompletion: (Swift.Float) async -&gt; ()) async throws -&gt; ()"
-                  moduleName = "USIM"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mehul/Documents/projects/USIM/Projects/USIM/USIM/Application/ApplicationConfig.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "119"
-                  endingLineNumber = "119"
-                  offsetFromSymbolStart = "172">
+                  offsetFromSymbolStart = "196">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -625,326 +295,160 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "795E346B-4811-4010-BA31-2D102CB90ED8"
-            shouldBeEnabled = "Yes"
+            uuid = "92EF0A6C-AA36-49E3-826A-931F87F5C218"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "USIM/Application/ApplicationConfig.swift"
+            filePath = "USIM/View/Cells/CollectionCells/VideoCollectionCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
-            landmarkName = "updateRemoteConfigAsync(statusCompletion:percentageCompletion:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "795E346B-4811-4010-BA31-2D102CB90ED8 - e83e5da0e305bd21"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for USIM.ApplicationConfig.updateRemoteConfigAsync(statusCompletion: (Swift.String) async -&gt; (), percentageCompletion: (Swift.Float) async -&gt; ()) async throws -&gt; ()"
-                  moduleName = "USIM"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mehul/Documents/projects/USIM/Projects/USIM/USIM/Application/ApplicationConfig.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "113"
-                  endingLineNumber = "113"
-                  offsetFromSymbolStart = "172">
-               </Location>
-               <Location
-                  uuid = "795E346B-4811-4010-BA31-2D102CB90ED8 - b449ca5e54b392d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(8) suspend resume partial function for USIM.ApplicationConfig.updateRemoteConfigAsync(statusCompletion: (Swift.String) async -&gt; (), percentageCompletion: (Swift.Float) async -&gt; ()) async throws -&gt; ()"
-                  moduleName = "USIM"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mehul/Documents/projects/USIM/Projects/USIM/USIM/Application/ApplicationConfig.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "113"
-                  endingLineNumber = "113"
-                  offsetFromSymbolStart = "96">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E74340AD-38F8-45AC-BD5A-ADE723B2CAF1"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "USIM/Application/ApplicationConfig.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
-            landmarkName = "updateRemoteConfigAsync(statusCompletion:percentageCompletion:)"
+            startingLineNumber = "232"
+            endingLineNumber = "232"
+            landmarkName = "pickerView(_:didSelectRow:inComponent:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4B0E4315-22CF-453E-B758-EBA22FFD5244"
-            shouldBeEnabled = "Yes"
+            uuid = "917D1EF5-D0EF-4EF2-8F72-B64A5E386126"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "USIM/Application/ApplicationConfig.swift"
+            filePath = "USIM/View/Cells/CollectionCells/VideoCollectionCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
-            landmarkName = "updateCache(_:_:)"
+            startingLineNumber = "220"
+            endingLineNumber = "220"
+            landmarkName = "pickerView(_:titleForRow:forComponent:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "4B0E4315-22CF-453E-B758-EBA22FFD5244 - f0f158370c04e1dd"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for USIM.ApplicationConfig.updateCache(Swift.Optional&lt;(Swift.String) async -&gt; ()&gt;, Swift.Optional&lt;(Swift.Float) async -&gt; ()&gt;) async throws -&gt; ()"
-                  moduleName = "USIM"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mehul/Documents/projects/USIM/Projects/USIM/USIM/Application/ApplicationConfig.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "139"
-                  endingLineNumber = "139"
-                  offsetFromSymbolStart = "4308">
-               </Location>
-               <Location
-                  uuid = "4B0E4315-22CF-453E-B758-EBA22FFD5244 - ea73fba829cb25df"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for USIM.ApplicationConfig.updateCache(Swift.Optional&lt;(Swift.String) async -&gt; ()&gt;, Swift.Optional&lt;(Swift.Float) async -&gt; ()&gt;) async throws -&gt; ()"
-                  moduleName = "USIM"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mehul/Documents/projects/USIM/Projects/USIM/USIM/Application/ApplicationConfig.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "139"
-                  endingLineNumber = "139"
-                  offsetFromSymbolStart = "4224">
-               </Location>
-               <Location
-                  uuid = "4B0E4315-22CF-453E-B758-EBA22FFD5244 - 1df49519337269d9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(5) suspend resume partial function for USIM.ApplicationConfig.updateCache(Swift.Optional&lt;(Swift.String) async -&gt; ()&gt;, Swift.Optional&lt;(Swift.Float) async -&gt; ()&gt;) async throws -&gt; ()"
-                  moduleName = "USIM"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mehul/Documents/projects/USIM/Projects/USIM/USIM/Application/ApplicationConfig.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "139"
-                  endingLineNumber = "139"
-                  offsetFromSymbolStart = "4220">
-               </Location>
-               <Location
-                  uuid = "4B0E4315-22CF-453E-B758-EBA22FFD5244 - 3775348add38addb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(7) suspend resume partial function for USIM.ApplicationConfig.updateCache(Swift.Optional&lt;(Swift.String) async -&gt; ()&gt;, Swift.Optional&lt;(Swift.Float) async -&gt; ()&gt;) async throws -&gt; ()"
-                  moduleName = "USIM"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mehul/Documents/projects/USIM/Projects/USIM/USIM/Application/ApplicationConfig.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "139"
-                  endingLineNumber = "139"
-                  offsetFromSymbolStart = "3140">
-               </Location>
-               <Location
-                  uuid = "4B0E4315-22CF-453E-B758-EBA22FFD5244 - 2af7d67be6ff11d5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(9) suspend resume partial function for USIM.ApplicationConfig.updateCache(Swift.Optional&lt;(Swift.String) async -&gt; ()&gt;, Swift.Optional&lt;(Swift.Float) async -&gt; ()&gt;) async throws -&gt; ()"
-                  moduleName = "USIM"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mehul/Documents/projects/USIM/Projects/USIM/USIM/Application/ApplicationConfig.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "139"
-                  endingLineNumber = "139"
-                  offsetFromSymbolStart = "1388">
-               </Location>
-               <Location
-                  uuid = "4B0E4315-22CF-453E-B758-EBA22FFD5244 - 459d94812f5ff69f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(11) suspend resume partial function for USIM.ApplicationConfig.updateCache(Swift.Optional&lt;(Swift.String) async -&gt; ()&gt;, Swift.Optional&lt;(Swift.Float) async -&gt; ()&gt;) async throws -&gt; ()"
-                  moduleName = "USIM"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mehul/Documents/projects/USIM/Projects/USIM/USIM/Application/ApplicationConfig.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "139"
-                  endingLineNumber = "139"
-                  offsetFromSymbolStart = "5044">
-               </Location>
-               <Location
-                  uuid = "4B0E4315-22CF-453E-B758-EBA22FFD5244 - 48fb2933cf7c4b96"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(18) suspend resume partial function for USIM.ApplicationConfig.updateCache(Swift.Optional&lt;(Swift.String) async -&gt; ()&gt;, Swift.Optional&lt;(Swift.Float) async -&gt; ()&gt;) async throws -&gt; ()"
-                  moduleName = "USIM"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mehul/Documents/projects/USIM/Projects/USIM/USIM/Application/ApplicationConfig.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "139"
-                  endingLineNumber = "139"
-                  offsetFromSymbolStart = "2272">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5D7F2620-E219-41B3-8E2E-7AC2186E6687"
-            shouldBeEnabled = "Yes"
+            uuid = "F3B03803-CE0C-4065-8B46-3354F1180B6C"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "USIM/Application/ApplicationConfig.swift"
+            filePath = "USIM/View/Cells/CollectionCells/VideoCollectionCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
-            landmarkName = "updateCache(_:_:)"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
+            landmarkName = "pickerView(_:numberOfRowsInComponent:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "5D7F2620-E219-41B3-8E2E-7AC2186E6687 - f0f158370c04e080"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for USIM.ApplicationConfig.updateCache(Swift.Optional&lt;(Swift.String) async -&gt; ()&gt;, Swift.Optional&lt;(Swift.Float) async -&gt; ()&gt;) async throws -&gt; ()"
-                  moduleName = "USIM"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mehul/Documents/projects/USIM/Projects/USIM/USIM/Application/ApplicationConfig.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "144"
-                  endingLineNumber = "144"
-                  offsetFromSymbolStart = "2944">
-               </Location>
-               <Location
-                  uuid = "5D7F2620-E219-41B3-8E2E-7AC2186E6687 - ea73fba829cb2482"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for USIM.ApplicationConfig.updateCache(Swift.Optional&lt;(Swift.String) async -&gt; ()&gt;, Swift.Optional&lt;(Swift.Float) async -&gt; ()&gt;) async throws -&gt; ()"
-                  moduleName = "USIM"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mehul/Documents/projects/USIM/Projects/USIM/USIM/Application/ApplicationConfig.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "144"
-                  endingLineNumber = "144"
-                  offsetFromSymbolStart = "2860">
-               </Location>
-               <Location
-                  uuid = "5D7F2620-E219-41B3-8E2E-7AC2186E6687 - 1df4951933726884"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(5) suspend resume partial function for USIM.ApplicationConfig.updateCache(Swift.Optional&lt;(Swift.String) async -&gt; ()&gt;, Swift.Optional&lt;(Swift.Float) async -&gt; ()&gt;) async throws -&gt; ()"
-                  moduleName = "USIM"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mehul/Documents/projects/USIM/Projects/USIM/USIM/Application/ApplicationConfig.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "144"
-                  endingLineNumber = "144"
-                  offsetFromSymbolStart = "2856">
-               </Location>
-               <Location
-                  uuid = "5D7F2620-E219-41B3-8E2E-7AC2186E6687 - 3775348add38ac86"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(7) suspend resume partial function for USIM.ApplicationConfig.updateCache(Swift.Optional&lt;(Swift.String) async -&gt; ()&gt;, Swift.Optional&lt;(Swift.Float) async -&gt; ()&gt;) async throws -&gt; ()"
-                  moduleName = "USIM"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mehul/Documents/projects/USIM/Projects/USIM/USIM/Application/ApplicationConfig.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "144"
-                  endingLineNumber = "144"
-                  offsetFromSymbolStart = "1668">
-               </Location>
-               <Location
-                  uuid = "5D7F2620-E219-41B3-8E2E-7AC2186E6687 - 2af7d67be6ff1088"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(9) suspend resume partial function for USIM.ApplicationConfig.updateCache(Swift.Optional&lt;(Swift.String) async -&gt; ()&gt;, Swift.Optional&lt;(Swift.Float) async -&gt; ()&gt;) async throws -&gt; ()"
-                  moduleName = "USIM"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mehul/Documents/projects/USIM/Projects/USIM/USIM/Application/ApplicationConfig.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "144"
-                  endingLineNumber = "144"
-                  offsetFromSymbolStart = "1612">
-               </Location>
-               <Location
-                  uuid = "5D7F2620-E219-41B3-8E2E-7AC2186E6687 - 459d94812f5ff7c2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(11) suspend resume partial function for USIM.ApplicationConfig.updateCache(Swift.Optional&lt;(Swift.String) async -&gt; ()&gt;, Swift.Optional&lt;(Swift.Float) async -&gt; ()&gt;) async throws -&gt; ()"
-                  moduleName = "USIM"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mehul/Documents/projects/USIM/Projects/USIM/USIM/Application/ApplicationConfig.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "144"
-                  endingLineNumber = "144"
-                  offsetFromSymbolStart = "2904">
-               </Location>
-               <Location
-                  uuid = "5D7F2620-E219-41B3-8E2E-7AC2186E6687 - 48fb2933cf7c4acb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(18) suspend resume partial function for USIM.ApplicationConfig.updateCache(Swift.Optional&lt;(Swift.String) async -&gt; ()&gt;, Swift.Optional&lt;(Swift.Float) async -&gt; ()&gt;) async throws -&gt; ()"
-                  moduleName = "USIM"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mehul/Documents/projects/USIM/Projects/USIM/USIM/Application/ApplicationConfig.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "144"
-                  endingLineNumber = "144"
-                  offsetFromSymbolStart = "1512">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "820FF1B5-794C-4186-833B-1BCA3D1F6311"
+            uuid = "4C3E5072-3B6B-423B-B71C-E68EE5659595"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "USIM/View/Cells/CollectionCells/VideoCollectionCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "initCell(defaultVideos:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F43E271F-607D-4497-A12C-AD16557C75E1"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "USIM/Application/ApplicationConfig.swift"
+            filePath = "USIM/View/Cells/CollectionCells/VideoCollectionCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
-            landmarkName = "updateCache(_:_:)"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
+            landmarkName = "setToCustom()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BD41FA77-6072-4A02-92D8-3865BC3DCD40"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "USIM/View/Cells/CollectionCells/VideoCollectionCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "setToCustom()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EFE5B97B-E3BB-4EDC-AEA5-A4925F8539EF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "USIM/View/Cells/CollectionCells/VideoCollectionCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "237"
+            endingLineNumber = "237"
+            landmarkName = "pickerView(_:didSelectRow:inComponent:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "65C9CE48-9DCF-4C33-A7FE-4CD175443292"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "USIM/Controller/Popup/Delete/DeleteViews/DeleteViewsPopupViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "doneTapped(sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1BFC9861-4844-4CA6-A23A-5DA4B5088347"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "USIM/Controller/Popup/Delete/DeleteMode/DeleteModePopupViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "doneTapped(sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F4C608CF-4201-4D01-A7DF-4D2A3A6E9CFB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "USIM/Controller/UpdateConfigViewController/UpdateConfiguViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "onClickUpdate(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

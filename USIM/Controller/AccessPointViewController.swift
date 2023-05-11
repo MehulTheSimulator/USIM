@@ -32,6 +32,11 @@ class AccessPointViewController: UIViewController {
         USIM.RemoteLog("Set Input Handler to \(self)")
     }
     
+    @IBAction func onClickAccessPointsTool(_ sender: UIButton) {
+        let tip = Toolkit()
+        tip.showTipView(sender: sender, text: "Here allows you to connect to Maicon's access points using a probe scan, and also provides a list of access points that can be easily modified as needed.")
+    }
+    
     // MARK: - Methods -
     func scanCode(target: AccessPointTableCell, pointKey: String) {
         labelState?.text = "Scanning code for \(USIM.application.getAccessPoint(pointKey)!.name)"

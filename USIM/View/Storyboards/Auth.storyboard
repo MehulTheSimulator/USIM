@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -346,12 +347,30 @@ POCUS SIMULATOR</string>
                                                         <color key="textColor" red="0.67450980392156867" green="0.67450980392156867" blue="0.67450980392156867" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IkI-xd-b7W">
+                                                        <rect key="frame" x="593" y="12" width="15" height="15"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="15" id="Coj-iR-ZPU"/>
+                                                            <constraint firstAttribute="height" constant="15" id="HWb-ed-Nks"/>
+                                                        </constraints>
+                                                        <color key="tintColor" systemColor="labelColor"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain">
+                                                            <imageReference key="image" image="exclamationmark.circle" catalog="system" symbolScale="small" renderingMode="template"/>
+                                                            <color key="baseForegroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="onClickLicenseTool:" destination="aUD-dh-rW1" eventType="touchUpInside" id="2kM-Ji-ke6"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" id="8XR-XJ-nY7"/>
                                                     <constraint firstItem="R4d-m7-s68" firstAttribute="centerY" secondItem="kDI-kf-kDI" secondAttribute="centerY" id="L3x-kj-lqU"/>
                                                     <constraint firstItem="R4d-m7-s68" firstAttribute="centerX" secondItem="kDI-kf-kDI" secondAttribute="centerX" id="Q73-lz-3Zk"/>
+                                                    <constraint firstItem="IkI-xd-b7W" firstAttribute="trailing" secondItem="R4d-m7-s68" secondAttribute="trailing" id="Vgw-GB-m6y"/>
+                                                    <constraint firstItem="R4d-m7-s68" firstAttribute="top" secondItem="IkI-xd-b7W" secondAttribute="bottom" id="p4p-7Q-eov"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="bottomCornerRadius">
@@ -611,7 +630,7 @@ POCUS SIMULATOR</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ndk-iO-AhO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1024" y="9"/>
+            <point key="canvasLocation" x="1023.5593220338984" y="8.7804878048780495"/>
         </scene>
         <!--Access Point View Controller-->
         <scene sceneID="nhk-Kb-Q3J">
@@ -651,12 +670,30 @@ POCUS SIMULATOR</string>
                                                         <color key="textColor" red="0.67450980390000004" green="0.67450980390000004" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fOe-FO-s7E">
+                                                        <rect key="frame" x="575.5" y="10" width="15" height="15"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="15" id="NBP-tY-Gwc"/>
+                                                            <constraint firstAttribute="width" constant="15" id="QdF-hF-b6a"/>
+                                                        </constraints>
+                                                        <color key="tintColor" systemColor="labelColor"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain">
+                                                            <imageReference key="image" image="exclamationmark.circle" catalog="system" symbolScale="small" renderingMode="template"/>
+                                                            <color key="baseForegroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="onClickAccessPointsTool:" destination="hGE-Pf-Sta" eventType="touchUpInside" id="LSp-CH-ELQ"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" id="7aC-ED-bof"/>
                                                     <constraint firstItem="wWf-dr-9tg" firstAttribute="centerX" secondItem="g3K-In-SdR" secondAttribute="centerX" id="Wgu-FI-kWd"/>
                                                     <constraint firstItem="wWf-dr-9tg" firstAttribute="centerY" secondItem="g3K-In-SdR" secondAttribute="centerY" id="XE6-f5-AEn"/>
+                                                    <constraint firstItem="wWf-dr-9tg" firstAttribute="top" secondItem="fOe-FO-s7E" secondAttribute="bottom" constant="2" id="aGU-Rp-4es"/>
+                                                    <constraint firstItem="fOe-FO-s7E" firstAttribute="trailing" secondItem="wWf-dr-9tg" secondAttribute="trailing" id="vIz-Lr-w6f"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="bottomCornerRadius">
@@ -1112,13 +1149,31 @@ POCUS SIMULATOR</string>
                                                     <constraint firstAttribute="bottom" secondItem="CZc-M3-nn7" secondAttribute="bottom" id="v9f-5k-WKG"/>
                                                 </constraints>
                                             </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NLO-05-Dwh">
+                                                <rect key="frame" x="642" y="53" width="15" height="15"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="15" id="A3I-Mh-wNE"/>
+                                                    <constraint firstAttribute="height" constant="15" id="Zdf-zG-fz0"/>
+                                                </constraints>
+                                                <color key="tintColor" systemColor="labelColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain">
+                                                    <imageReference key="image" image="exclamationmark.circle" catalog="system" symbolScale="small" renderingMode="template"/>
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="onClickCustomViewTool:" destination="Jo7-q5-IFH" eventType="touchUpInside" id="rQV-gE-5nV"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="hsU-ev-kYE" firstAttribute="top" secondItem="Hri-pf-AEJ" secondAttribute="bottom" constant="18" id="2q1-zE-I2X"/>
                                             <constraint firstItem="Hri-pf-AEJ" firstAttribute="centerX" secondItem="KPn-iZ-ib7" secondAttribute="centerX" id="6u6-U9-qwL"/>
+                                            <constraint firstItem="Hri-pf-AEJ" firstAttribute="top" secondItem="NLO-05-Dwh" secondAttribute="bottom" id="Gkd-LJ-74q"/>
                                             <constraint firstItem="hsU-ev-kYE" firstAttribute="centerX" secondItem="KPn-iZ-ib7" secondAttribute="centerX" id="HUP-Ko-UZS"/>
                                             <constraint firstItem="FTs-oU-VCr" firstAttribute="centerX" secondItem="KPn-iZ-ib7" secondAttribute="centerX" id="nS3-W9-xPz"/>
                                             <constraint firstAttribute="bottom" secondItem="FTs-oU-VCr" secondAttribute="bottom" constant="20" id="pzm-i1-Ero"/>
+                                            <constraint firstItem="NLO-05-Dwh" firstAttribute="trailing" secondItem="Hri-pf-AEJ" secondAttribute="trailing" id="wIr-ST-f7k"/>
                                             <constraint firstAttribute="trailing" secondItem="B06-u0-uKo" secondAttribute="trailing" constant="30" id="wf4-Hc-v3k"/>
                                             <constraint firstItem="FTs-oU-VCr" firstAttribute="leading" secondItem="hsU-ev-kYE" secondAttribute="leading" constant="20" id="xVF-Le-NlM"/>
                                             <constraint firstItem="FTs-oU-VCr" firstAttribute="top" secondItem="hsU-ev-kYE" secondAttribute="bottom" constant="15" id="xuh-l2-ogo"/>
@@ -1185,6 +1240,16 @@ POCUS SIMULATOR</string>
                                             <constraint firstItem="fm1-4C-s9z" firstAttribute="top" secondItem="YQb-Tb-KLI" secondAttribute="top" id="wpd-W0-AEk"/>
                                         </constraints>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nr2-Bz-U4A">
+                                        <rect key="frame" x="85" y="71.5" width="200" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="Pul-wa-eyD"/>
+                                            <constraint firstAttribute="height" constant="25" id="dQe-hV-WtF"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -1199,6 +1264,8 @@ POCUS SIMULATOR</string>
                                     <constraint firstAttribute="trailing" secondItem="KPn-iZ-ib7" secondAttribute="trailing" id="LCg-eV-8kp"/>
                                     <constraint firstItem="KPn-iZ-ib7" firstAttribute="top" secondItem="bf9-u3-8a6" secondAttribute="top" id="O3a-Hv-PQV"/>
                                     <constraint firstItem="4qF-a6-CtZ" firstAttribute="leading" secondItem="bf9-u3-8a6" secondAttribute="leading" id="TBR-Cf-Imb"/>
+                                    <constraint firstItem="nr2-Bz-U4A" firstAttribute="centerY" secondItem="NNb-eV-G5d" secondAttribute="centerY" id="WlU-Cy-pmx"/>
+                                    <constraint firstItem="nr2-Bz-U4A" firstAttribute="leading" secondItem="YQb-Tb-KLI" secondAttribute="trailing" constant="20" id="aK1-B0-UWi"/>
                                     <constraint firstItem="Hri-pf-AEJ" firstAttribute="centerY" secondItem="YQb-Tb-KLI" secondAttribute="centerY" id="qDv-wf-H0i"/>
                                     <constraint firstItem="SzZ-el-oeE" firstAttribute="top" secondItem="KPn-iZ-ib7" secondAttribute="bottom" id="usU-cv-Jga"/>
                                     <constraint firstAttribute="bottom" secondItem="4qF-a6-CtZ" secondAttribute="bottom" id="vbE-Gs-hql"/>
@@ -1218,6 +1285,7 @@ POCUS SIMULATOR</string>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="lblmode" destination="nr2-Bz-U4A" id="6WG-bg-m1V"/>
                         <outlet property="txtView" destination="VWh-5R-1vV" id="qR5-ll-maQ"/>
                         <outlet property="videoCollectionView" destination="Fen-oR-uAC" id="ZF9-fR-TJG"/>
                     </connections>
@@ -1683,9 +1751,27 @@ POCUS SIMULATOR</string>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sge-Cm-Fzp">
+                                                                        <rect key="frame" x="103" y="4" width="15" height="15"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="15" id="baH-B9-R2c"/>
+                                                                            <constraint firstAttribute="width" constant="15" id="jGH-dS-o3B"/>
+                                                                        </constraints>
+                                                                        <color key="tintColor" systemColor="labelColor"/>
+                                                                        <state key="normal" title="Button"/>
+                                                                        <buttonConfiguration key="configuration" style="plain">
+                                                                            <imageReference key="image" image="exclamationmark.circle" catalog="system" symbolScale="small" renderingMode="template"/>
+                                                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        </buttonConfiguration>
+                                                                        <connections>
+                                                                            <action selector="onClickModeTool:" destination="Xh6-rm-7UN" eventType="touchUpInside" id="wiD-t4-eK7"/>
+                                                                        </connections>
+                                                                    </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" red="0.2156862745" green="0.22352941179999999" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
+                                                                    <constraint firstItem="rfb-BR-nYZ" firstAttribute="top" secondItem="Sge-Cm-Fzp" secondAttribute="bottom" constant="-1" id="7eD-cV-tCi"/>
+                                                                    <constraint firstItem="Sge-Cm-Fzp" firstAttribute="trailing" secondItem="rfb-BR-nYZ" secondAttribute="trailing" id="Aye-GR-5xR"/>
                                                                     <constraint firstItem="rfb-BR-nYZ" firstAttribute="leading" secondItem="Xws-2S-8bK" secondAttribute="leading" constant="12" id="JuF-RL-Jik"/>
                                                                     <constraint firstItem="rfb-BR-nYZ" firstAttribute="centerY" secondItem="Xws-2S-8bK" secondAttribute="centerY" id="sgV-bo-GCe"/>
                                                                     <constraint firstAttribute="trailing" secondItem="rfb-BR-nYZ" secondAttribute="trailing" constant="12" id="zLW-4h-qdo"/>
@@ -1721,17 +1807,35 @@ POCUS SIMULATOR</string>
                                                                 <rect key="frame" x="0.0" y="62.5" width="130" height="57"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uP9-OR-17L">
-                                                                        <rect key="frame" x="20" y="18.5" width="90" height="20.5"/>
+                                                                        <rect key="frame" x="12" y="18.5" width="106" height="20.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cos-W3-xMI">
+                                                                        <rect key="frame" x="103" y="4" width="15" height="15"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="15" id="Ana-zl-OI7"/>
+                                                                            <constraint firstAttribute="width" constant="15" id="qD7-GI-ZJF"/>
+                                                                        </constraints>
+                                                                        <color key="tintColor" systemColor="labelColor"/>
+                                                                        <state key="normal" title="Button"/>
+                                                                        <buttonConfiguration key="configuration" style="plain">
+                                                                            <imageReference key="image" image="exclamationmark.circle" catalog="system" symbolScale="small" renderingMode="template"/>
+                                                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        </buttonConfiguration>
+                                                                        <connections>
+                                                                            <action selector="onClickViewTool:" destination="Xh6-rm-7UN" eventType="touchUpInside" id="2VU-BN-KFX"/>
+                                                                        </connections>
+                                                                    </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" red="0.2156862745" green="0.22352941179999999" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
-                                                                    <constraint firstItem="uP9-OR-17L" firstAttribute="leading" secondItem="PJN-1A-P3i" secondAttribute="leading" constant="20" id="5ss-nb-VvF"/>
+                                                                    <constraint firstItem="cos-W3-xMI" firstAttribute="trailing" secondItem="uP9-OR-17L" secondAttribute="trailing" id="3jW-zc-Yim"/>
+                                                                    <constraint firstItem="uP9-OR-17L" firstAttribute="leading" secondItem="PJN-1A-P3i" secondAttribute="leading" constant="12" id="5ss-nb-VvF"/>
+                                                                    <constraint firstItem="uP9-OR-17L" firstAttribute="top" secondItem="cos-W3-xMI" secondAttribute="bottom" constant="-0.5" id="iyP-Ld-2Cy"/>
                                                                     <constraint firstItem="uP9-OR-17L" firstAttribute="centerY" secondItem="PJN-1A-P3i" secondAttribute="centerY" id="jST-Mi-vAd"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="uP9-OR-17L" secondAttribute="trailing" constant="20" id="tjg-XM-HLC"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="uP9-OR-17L" secondAttribute="trailing" constant="12" id="tjg-XM-HLC"/>
                                                                     <constraint firstItem="uP9-OR-17L" firstAttribute="centerX" secondItem="PJN-1A-P3i" secondAttribute="centerX" id="yU2-CW-QhL"/>
                                                                 </constraints>
                                                                 <userDefinedRuntimeAttributes>
@@ -1869,7 +1973,7 @@ POCUS SIMULATOR</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="beE-ya-ssS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="361" y="9"/>
+            <point key="canvasLocation" x="360.50847457627123" y="8.7804878048780495"/>
         </scene>
         <!--Intro Logo View Controller-->
         <scene sceneID="yIb-QI-xJk">
@@ -1950,11 +2054,29 @@ POCUS SIMULATOR</string>
                                                         <color key="textColor" red="0.67450980390000004" green="0.67450980390000004" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgS-ag-4Ma">
+                                                        <rect key="frame" x="626" y="8" width="15" height="15"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="15" id="7bk-9q-7uQ"/>
+                                                            <constraint firstAttribute="width" constant="15" id="GZV-05-8OM"/>
+                                                        </constraints>
+                                                        <color key="tintColor" systemColor="labelColor"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain">
+                                                            <imageReference key="image" image="exclamationmark.circle" catalog="system" symbolScale="small" renderingMode="template"/>
+                                                            <color key="baseForegroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="onClickUpdateTool:" destination="s1P-q2-0Gi" eventType="touchUpInside" id="GNx-yL-rFf"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
+                                                    <constraint firstItem="fgS-ag-4Ma" firstAttribute="trailing" secondItem="x3B-CI-qVt" secondAttribute="trailing" id="7NU-do-CI7"/>
                                                     <constraint firstItem="x3B-CI-qVt" firstAttribute="centerX" secondItem="0g7-NQ-5gQ" secondAttribute="centerX" id="PYU-dy-abQ"/>
                                                     <constraint firstAttribute="height" constant="80" id="TfD-9q-gcm"/>
+                                                    <constraint firstItem="x3B-CI-qVt" firstAttribute="top" secondItem="fgS-ag-4Ma" secondAttribute="bottom" constant="4" id="g8j-wp-9kZ"/>
                                                     <constraint firstItem="x3B-CI-qVt" firstAttribute="centerY" secondItem="0g7-NQ-5gQ" secondAttribute="centerY" id="scI-Ql-rEe"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
@@ -2461,8 +2583,8 @@ POCUS SIMULATOR</string>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vhp-NM-Xoa" customClass="DesignableView" customModule="USIM" customModuleProvider="target">
                                                 <rect key="frame" x="80" y="0.0" width="1020" height="80"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUB-Gy-Pct">
-                                                        <rect key="frame" x="476" y="27" width="68.5" height="26"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custom Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUB-Gy-Pct">
+                                                        <rect key="frame" x="426.5" y="27" width="167" height="26"/>
                                                         <fontDescription key="fontDescription" name="Gilroy-Medium" family="Gilroy-Medium" pointSize="26"/>
                                                         <color key="textColor" red="0.67450980390000004" green="0.67450980390000004" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -2528,6 +2650,22 @@ POCUS SIMULATOR</string>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OXD-6A-A8e">
+                                                        <rect key="frame" x="16" y="0.0" width="15" height="15"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="15" id="AlC-Ml-MoU"/>
+                                                            <constraint firstAttribute="width" constant="15" id="kaN-Qu-mGm"/>
+                                                        </constraints>
+                                                        <color key="tintColor" systemColor="labelColor"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain">
+                                                            <imageReference key="image" image="exclamationmark.circle" catalog="system" symbolScale="small" renderingMode="template"/>
+                                                            <color key="baseForegroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="onClickCustomModeTool:" destination="PgG-Ob-BNZ" eventType="touchUpInside" id="Ydi-Wa-Ffy"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
@@ -2536,7 +2674,9 @@ POCUS SIMULATOR</string>
                                                     <constraint firstAttribute="bottom" secondItem="cUe-pQ-vyU" secondAttribute="bottom" constant="16" id="5KC-8W-zLu"/>
                                                     <constraint firstItem="cUe-pQ-vyU" firstAttribute="top" secondItem="PIz-pk-ClX" secondAttribute="top" constant="16" id="6lp-iO-sLt"/>
                                                     <constraint firstAttribute="trailing" secondItem="cUe-pQ-vyU" secondAttribute="trailing" constant="16" id="FBi-Kn-AcB"/>
+                                                    <constraint firstItem="OXD-6A-A8e" firstAttribute="leading" secondItem="f1P-LK-Xc3" secondAttribute="leading" id="QJx-g3-jqx"/>
                                                     <constraint firstItem="cUe-pQ-vyU" firstAttribute="centerY" secondItem="PIz-pk-ClX" secondAttribute="centerY" id="o3g-6e-S8T"/>
+                                                    <constraint firstItem="f1P-LK-Xc3" firstAttribute="top" secondItem="OXD-6A-A8e" secondAttribute="bottom" constant="1" id="uzg-2m-5je"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
@@ -2613,12 +2753,16 @@ POCUS SIMULATOR</string>
         <image name="chevron.backward" catalog="system" width="97" height="128"/>
         <image name="chevron.left.to.line" catalog="system" width="104" height="128"/>
         <image name="chevron.right.to.line" catalog="system" width="104" height="128"/>
+        <image name="exclamationmark.circle" catalog="system" width="128" height="123"/>
         <image name="fuji" width="898" height="587"/>
         <image name="line.3.horizontal" catalog="system" width="128" height="65"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="sideMenuLogo" width="121" height="53"/>
         <image name="simpleLogo" width="63" height="68"/>
         <image name="square.and.arrow.down" catalog="system" width="121" height="128"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

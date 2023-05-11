@@ -10,13 +10,14 @@ import AVKit
 import GSPlayer
 
 class HomeViewController: UIViewController {
-
+    
     // MARK: -  IBOutlets -
     @IBOutlet weak var playerView: DesignableView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionViewViews: UICollectionView!
     @IBOutlet weak var modeButton: UIButton!
     @IBOutlet weak var viewsButton: UIButton!
+    
     @IBOutlet weak var backScrollImage: UIImageView! {
         didSet {
             backScrollImage.isUserInteractionEnabled = true
@@ -99,34 +100,44 @@ class HomeViewController: UIViewController {
     // MARK: -  IBActions -
     
     @IBAction func onClickAddMode(_ sender: UIButton) {
-        requireConfirm(title: "Add Mode", text: "Are you sure you want to create a new mode?") {
-            [self] in
-            if($0) {
-                let modeKey = "mode_custom_\(UUID().uuidString)"
-                USIM.application.config.addCustomMode(modeKey: modeKey, name: "New Mode")
-                let viewKey = "view_custom_\(UUID().uuidString)"
-                USIM.application.config.addCustomView(modeKey: modeKey, viewKey: viewKey, name: "New View")
-                USIM.application.setCurrentMode(modeKey: modeKey)
-                editMode(modeKey: modeKey)
+         requireConfirm(title: "Add Mode", text: "Are you sure you want to create a new mode?") {
+                [self] in
+                if($0) {
+                    let modeKey = "mode_custom_\(UUID().uuidString)"
+                    USIM.application.config.addCustomMode(modeKey: modeKey, name: "New Mode")
+                    let viewKey = "view_custom_\(UUID().uuidString)"
+                    USIM.application.config.addCustomView(modeKey: modeKey, viewKey: viewKey, name: "New View")
+                    USIM.application.setCurrentMode(modeKey: modeKey)
+                    editMode(modeKey: modeKey)
+                }
             }
-        }
     }
     
     @IBAction func onClickAddView(_ sender: UIButton) {
-        requireConfirm(title: "Add View", text: "Are you sure you want to create a new view?") {
-            [self] in
-            if($0) {
-                let viewKey = "view_custom_\(UUID().uuidString)"
-                USIM.application.config.addCustomView(modeKey: USIM.application.currentMode!, viewKey: viewKey, name: "New View")
-                if let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "CustomVideoViewController") as? CustomVideoViewController {
-                    secondViewController.targetModeKey = USIM.application.currentMode!
-                    secondViewController.targetViewKey = viewKey
-                    secondViewController.modalTransitionStyle = .crossDissolve
-                    secondViewController.modalPresentationStyle = .fullScreen
-                    self.present(secondViewController, animated: true, completion: nil)
+         requireConfirm(title: "Add View", text: "Are you sure you want to create a new view?") {
+                [self] in
+                if($0) {
+                    let viewKey = "view_custom_\(UUID().uuidString)"
+                    USIM.application.config.addCustomView(modeKey: USIM.application.currentMode!, viewKey: viewKey, name: "New View")
+                    if let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "CustomVideoViewController") as? CustomVideoViewController {
+                        secondViewController.targetModeKey = USIM.application.currentMode!
+                        secondViewController.targetViewKey = viewKey
+                        secondViewController.modalTransitionStyle = .crossDissolve
+                        secondViewController.modalPresentationStyle = .fullScreen
+                        self.present(secondViewController, animated: true, completion: nil)
+                    }
                 }
             }
-        }
+    }
+    
+    @IBAction func onClickViewTool(_ sender: UIButton) {
+        let tip = Toolkit()
+        tip.showTipView(sender: sender, text: "There are a number of pre-existing views available, along with the option to create custom views using the ultrasound videos.")
+    }
+    
+    @IBAction func onClickModeTool(_ sender: UIButton) {
+        let tip = Toolkit()
+        tip.showTipView(sender: sender, text: "We have a range of modes available that you can select to achieve a realistic ultrasound experience. Simply choose the appropriate mode for your needs.")
     }
     
     // MARK: -  Methods -

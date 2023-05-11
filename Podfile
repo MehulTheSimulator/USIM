@@ -13,7 +13,7 @@ target 'USIM' do
   pod 'SDWebImage'
   pod "CFNotify"
   pod "MBCircularProgressBar"
-  
+  pod 'EasyTipView', '~> 2.1'
   target 'USIMTests' do
     inherit! :search_paths
     # Pods for testing

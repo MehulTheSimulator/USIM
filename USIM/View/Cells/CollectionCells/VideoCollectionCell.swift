@@ -31,6 +31,9 @@ class VideoCollectionCell : UICollectionViewCell {
     var imagePicker : UIImagePickerController!
     let playerViewController = AVPlayerViewController()
 
+    var rowId: Int? {
+        return pickerPoint?.selectedRow(inComponent: 0)
+    }
     
     public func initCell(defaultVideos: [(String, VideoReference)]) {
         
@@ -39,7 +42,16 @@ class VideoCollectionCell : UICollectionViewCell {
         pickerPoint = UIPickerView()
         pickerPoint?.dataSource = self
         pickerPoint?.delegate = self
+        
+        // Create a toolbar
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonTapped))
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        toolbar.setItems([flexibleSpace, doneButton], animated: false)
+        txtPoint?.inputAccessoryView = toolbar
         txtPoint?.inputView = pickerPoint
+        
         pickerVideo = UIPickerView()
         pickerVideo?.dataSource = self
         pickerVideo?.delegate = self
@@ -51,10 +63,39 @@ class VideoCollectionCell : UICollectionViewCell {
         imagePicker.allowsEditing = false
         imagePicker.delegate = self
         txtPoint?.text = USIM.application.config.getAccessPoint(key: customVideoData!.videoRef.pointKey)?.name ?? ""
-        txtVideo?.text =  customVideoData?.videoRef.instanceKey //customVideoData!.cachedPathRelative
+        
+        if let str = customVideoData?.videoRef.instanceKey {
+            txtVideo?.text = String(str.prefix(18))
+        }
+        
+         //customVideoData!.cachedPathRelative
         let image = USIM.application.config.getCachedImage(imageRef: customVideoData!, cache: target!.cache)
         imgThumbnil.image  = image
         
+    }
+    
+    
+    
+    func requireConfirm(title: String, text: String, _ callback: @escaping (Bool) -> ()) {
+        if let controller = (target?.storyboard?.instantiateViewController(withIdentifier: "ViewControllerConfirm") as? ViewControllerConfirm) {
+            controller.confirmTitle = title
+            controller.confirmText = text
+            controller.callback = callback
+            target?.present(controller, animated: true, completion: nil)
+        }
+    }
+    
+    // Selector for the "Done" button
+    @objc func doneButtonTapped() {
+        
+        let filterdata = target?.allCustomMedia.filter({ data in
+            return data.videoRef.pointKey == USIM.application.getAccessPoint(rowId!)!.key
+        })
+        guard filterdata!.count == 1 else {
+            target?.showAlert(message: "You Can't select same access point again")
+            return
+        }
+        txtPoint?.resignFirstResponder()
     }
     
     @IBAction func onClickSetNameBtn(_ sender: UIButton) {
@@ -83,15 +124,6 @@ class VideoCollectionCell : UICollectionViewCell {
             player.play()
         }
 
-    }
-    
-    func requireConfirm(title: String, text: String, _ callback: @escaping (Bool) -> ()) {
-        if let controller = (target?.storyboard?.instantiateViewController(withIdentifier: "ViewControllerConfirm") as? ViewControllerConfirm) {
-            controller.confirmTitle = title
-            controller.confirmText = text
-            controller.callback = callback
-            target?.present(controller, animated: true, completion: nil)
-        }
     }
     
     @IBAction func onButtonDelete(_ sender: Any) {
@@ -200,7 +232,7 @@ extension VideoCollectionCell : UIPickerViewDataSource, UIPickerViewDelegate {
         if(pickerView == pickerPoint) {
             customVideoData?.videoRef = VideoReference(modeKey: customVideoData!.videoRef.modeKey, viewKey: customVideoData!.videoRef.viewKey, pointKey: app.getAccessPoint(row)!.key, instanceKey: customVideoData!.videoRef.instanceKey)
             txtPoint?.text = app.getAccessPoint(row)?.name
-            txtPoint?.resignFirstResponder()
+            //txtPoint?.resignFirstResponder()
         } else {
             txtVideo?.text = row == 0 ? "Custom Video" : defaultVideos![row - 1].0
             selectedVideo = row == 0 ? nil : defaultVideos![row - 1].1
@@ -208,6 +240,15 @@ extension VideoCollectionCell : UIPickerViewDataSource, UIPickerViewDelegate {
         }
         app.config.trySaveLocalData()
     }
+    
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        guard let touch = touches.first else { return }
+//        let touchPoint = touch.location(in: self)
+//
+//        if self.bounds.contains(touchPoint) {
+//            super.touchesBegan(touches, with: event)
+//        }
+//    }
     
 }
 

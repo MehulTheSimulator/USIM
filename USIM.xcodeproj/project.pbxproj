@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		1ACA6A551ED5E77AFD01B594 /* Pods_USIM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02D22E07D08C13DB852657B0 /* Pods_USIM.framework */; };
 		2A5700BC29EE770C0013CA9B /* CustomVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5700BB29EE770C0013CA9B /* CustomVideoViewController.swift */; };
+		2A9EE8082A05601B008D3BE7 /* toolkit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9EE8072A05601B008D3BE7 /* toolkit.swift */; };
+		2AA3D2262A0A65C100755119 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA3D2252A0A65C100755119 /* String.swift */; };
+		2AA3D22A2A0A6EB800755119 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA3D2282A0A6EB800755119 /* Reachability.swift */; };
+		2AA3D22C2A0A6EE900755119 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA3D22B2A0A6EE900755119 /* Connectivity.swift */; };
 		2AF5966229FFD39C005F66E5 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AF5966129FFD39C005F66E5 /* UserNotifications.framework */; };
 		2AF5966429FFD39C005F66E5 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AF5966329FFD39C005F66E5 /* UserNotificationsUI.framework */; };
 		2AF7ACEE29EDA294008967D4 /* ModeEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF7ACED29EDA294008967D4 /* ModeEditViewController.swift */; };
@@ -139,6 +143,10 @@
 		02D22E07D08C13DB852657B0 /* Pods_USIM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_USIM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		06612388E6EFC8EA494BB999 /* Pods_USIM_USIMUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_USIM_USIMUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A5700BB29EE770C0013CA9B /* CustomVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomVideoViewController.swift; sourceTree = "<group>"; };
+		2A9EE8072A05601B008D3BE7 /* toolkit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toolkit.swift; sourceTree = "<group>"; };
+		2AA3D2252A0A65C100755119 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		2AA3D2282A0A6EB800755119 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		2AA3D22B2A0A6EE900755119 /* Connectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		2AF5966029FFD39C005F66E5 /* NotificationContentExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationContentExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AF5966129FFD39C005F66E5 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		2AF5966329FFD39C005F66E5 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
@@ -295,6 +303,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2AA3D2242A0A659700755119 /* String */ = {
+			isa = PBXGroup;
+			children = (
+				2AA3D2252A0A65C100755119 /* String.swift */,
+			);
+			path = String;
+			sourceTree = "<group>";
+		};
 		3F6F20F58F00EB8C4B97EC7D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -337,6 +353,7 @@
 				AE786FA229B3BDF500C5C70F /* FileHelper.swift */,
 				AE23F83B29B32505009B421A /* Application.swift */,
 				AE786FA429B3BE1900C5C70F /* ApplicationConfig.swift */,
+				2A9EE8072A05601B008D3BE7 /* toolkit.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -520,8 +537,8 @@
 				AE94FC8A299C5B6E001D4CAB /* Extensions */,
 				AE94FC86299C5AD8001D4CAB /* SubClasses */,
 				AE663B58298C61D600A87DC7 /* Delegates */,
-				AE663B4A298C61CD00A87DC7 /* View */,
 				AE663B56298C61D600A87DC7 /* Controller */,
+				AE663B4A298C61CD00A87DC7 /* View */,
 				AE663B28298C615300A87DC7 /* Info.plist */,
 			);
 			path = USIM;
@@ -578,18 +595,18 @@
 			isa = PBXGroup;
 			children = (
 				AE367E7329BA692D00F98152 /* VideoEditViewController */,
+				AE786FB129B3EFF700C5C70F /* UploadVideoViewController */,
+				AE2BA8FC29A298B6008C911E /* Home */,
 				AE367E7029BA671F00F98152 /* ConfirmViewController */,
 				AE786FA629B3C8F100C5C70F /* UpdateConfigViewController */,
 				AEA3315C29A6A72E003AC772 /* Popup */,
 				AEA44969299FFDF7009B7A21 /* AccessPointViewController.swift */,
-				AE786FB129B3EFF700C5C70F /* UploadVideoViewController */,
 				AE786FA929B3DAC300C5C70F /* Web */,
 				AEA4497D29A0A760009B7A21 /* SideMenuViewController.swift */,
 				AECF391029A0B13900A34C58 /* BaseViewController.swift */,
 				AECF391229A0BCCE00A34C58 /* LicenseUpdateViewController.swift */,
 				AECF391429A0C0C900A34C58 /* IntroViewController.swift */,
 				AECF391629A0C1B500A34C58 /* LicenseViewController.swift */,
-				AE2BA8FC29A298B6008C911E /* Home */,
 				AEDA787B29AA76B7004289D8 /* IntroLogoViewController.swift */,
 			);
 			path = Controller;
@@ -684,6 +701,7 @@
 		AE94FC8A299C5B6E001D4CAB /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2AA3D2242A0A659700755119 /* String */,
 				AE786FAE29B3EB7800C5C70F /* UIImage */,
 				AE786F9F29B3AB2E00C5C70F /* Date */,
 				AE23F86029B32E2E009B421A /* UIDevice */,
@@ -889,6 +907,8 @@
 				AECF391E29A0CA1F00A34C58 /* AppLaunchUtilityHelper.swift */,
 				AE23F83129B32139009B421A /* LicenseUtilityHelper.swift */,
 				AE23F85B29B32BE4009B421A /* LogUtilityHelper.swift */,
+				2AA3D22B2A0A6EE900755119 /* Connectivity.swift */,
+				2AA3D2282A0A6EB800755119 /* Reachability.swift */,
 			);
 			path = UtilityHelper;
 			sourceTree = "<group>";
@@ -1223,6 +1243,7 @@
 				AEA4496E299FFE76009B7A21 /* AccessPointTableCell.swift in Sources */,
 				AECF391129A0B13900A34C58 /* BaseViewController.swift in Sources */,
 				AEA4499429A0AE3E009B7A21 /* Config.swift in Sources */,
+				2AA3D22C2A0A6EE900755119 /* Connectivity.swift in Sources */,
 				AE786FAB29B3DAD000C5C70F /* TermViewController.swift in Sources */,
 				AEA4499329A0AE3E009B7A21 /* SSSideMenuContainerViewController.swift in Sources */,
 				AE94FC8C299C5B82001D4CAB /* UIButton.swift in Sources */,
@@ -1233,6 +1254,7 @@
 				AE786FA329B3BDF500C5C70F /* FileHelper.swift in Sources */,
 				AE23F85A29B32844009B421A /* LicenseFormat.swift in Sources */,
 				AEA4499129A0AE3E009B7A21 /* Enums.swift in Sources */,
+				2AA3D2262A0A65C100755119 /* String.swift in Sources */,
 				AE94FC89299C5AE8001D4CAB /* DesignableView.swift in Sources */,
 				AE23F84529B325E7009B421A /* ViewDefinition.swift in Sources */,
 				AE663B5C298C61D600A87DC7 /* AppDelegate.swift in Sources */,
@@ -1253,9 +1275,11 @@
 				AEA8D06B29B9284C001D625B /* DeleteViewsPopupViewController.swift in Sources */,
 				AE23F86B29B34A80009B421A /* WebServiceManager.swift in Sources */,
 				AECF391F29A0CA1F00A34C58 /* AppLaunchUtilityHelper.swift in Sources */,
+				2AA3D22A2A0A6EB800755119 /* Reachability.swift in Sources */,
 				AECF391329A0BCCE00A34C58 /* LicenseUpdateViewController.swift in Sources */,
 				AE23F86E29B34CA6009B421A /* LoaderButton.swift in Sources */,
 				AE23F84929B32618009B421A /* AccessPointDefinition.swift in Sources */,
+				2A9EE8082A05601B008D3BE7 /* toolkit.swift in Sources */,
 				AE23F84B29B32634009B421A /* VideoRemoteData.swift in Sources */,
 				AE23F85529B326F4009B421A /* LocalData.swift in Sources */,
 				AE23F85129B32690009B421A /* AccessPointLocalData.swift in Sources */,
@@ -1502,7 +1526,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.6;
+				CURRENT_PROJECT_VERSION = 1.7;
 				DEVELOPMENT_TEAM = W7HC44PV7L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = USIM/Info.plist;
@@ -1539,7 +1563,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.6;
+				CURRENT_PROJECT_VERSION = 1.7;
 				DEVELOPMENT_TEAM = W7HC44PV7L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = USIM/Info.plist;

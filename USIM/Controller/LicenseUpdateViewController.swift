@@ -22,4 +22,9 @@ class LicenseUpdateViewController: UIViewController {
         let licensExpiry = licenseInfo?.endDate.dateFormatting() ?? ""
         validLicenseLabel?.text = "License Valid - \(licensExpiry)"
     }
+    
+    @IBAction func onClickLicenseTool(_ sender: UIButton) {
+        let tip = Toolkit()
+        tip.showTipView(sender: sender, text: "This section allows you to manage your license. You can view the expiration date of your license key, and if it is nearing expiration, you can contact us to renew it.")
+    }
 }

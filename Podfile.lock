@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (5.6.4)
   - CFNotify (1.0.3)
+  - EasyTipView (2.1.0)
   - GSPlayer (0.2.26)
   - IQKeyboardManagerSwift (6.5.11)
   - MBCircularProgressBar (0.3.5)
@@ -14,6 +15,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - CFNotify
+  - EasyTipView (~> 2.1)
   - GSPlayer
   - IQKeyboardManagerSwift
   - MBCircularProgressBar
@@ -24,6 +26,7 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - CFNotify
+    - EasyTipView
     - GSPlayer
     - IQKeyboardManagerSwift
     - MBCircularProgressBar
@@ -34,6 +37,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
   CFNotify: a5f89f0b315a5eceebbdb9913df7da35fac51d74
+  EasyTipView: a92b6edc377b81c5ac18e9fd35d5ee78e9409488
   GSPlayer: 1ee7c282d6e6125ca9c0c684d91b8a31512ccfe6
   IQKeyboardManagerSwift: c7955c0bdbf7b2eb29bb7daaa44e3d90f55a9a85
   MBCircularProgressBar: 0b795b722a5eb5b0923822f90474e2576a1a7855
@@ -41,6 +45,6 @@ SPEC CHECKSUMS:
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftPopup: 31874508c0d91788edf71419a5bbeb3ebd498ab9
 
-PODFILE CHECKSUM: 9e0ee5aa5ef6201c628cc0989a6b1756ed97dc77
+PODFILE CHECKSUM: d87d2711012b795e32f6160a4f3fa5b9f522919f
 
 COCOAPODS: 1.12.0

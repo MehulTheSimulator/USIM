@@ -12,6 +12,7 @@ class CustomVideoViewController: UIViewController {
     // MARK: -  IBOutlets -
     @IBOutlet weak var videoCollectionView: UICollectionView!
     @IBOutlet weak var txtView: UITextField!
+    @IBOutlet weak var lblmode: UILabel!
     
     // MARK: -  Properties -
     var defaultVideos: [(String, VideoReference)]?
@@ -39,6 +40,7 @@ class CustomVideoViewController: UIViewController {
 //        let isNotCustom = app.config.isModeNotCustom(modeKey: targetModeKey!)
 //        txtView?.isUserInteractionEnabled = !isNotCustom
        // btnSetName.isEnabled = !isNotCustom
+        self.lblmode.text = app.config.getMode(modeKey: targetModeKey!)?.name
         defaultVideos = []
         for ref in app.config.getDefaultVideos() {
             let point = app.config.getAccessPoint(key: ref.pointKey)?.name ?? ""
@@ -55,12 +57,25 @@ class CustomVideoViewController: UIViewController {
         self.dismiss(animated: false)
     }
     
+    @IBAction func onClickCustomViewTool(_ sender: UIButton) {
+        let tip = Toolkit()
+        tip.showTipView(sender: sender, text: "The app allows you to create custom views based on your specific angle requirements for the access points. You can add videos to these views based on the access points, and also choose from pre-existing default access points.")
+    }
+    
     @IBAction func onClickUploadMedia(_ sender: UIButton) {
+        
+        guard allCustomMedia.count < 8 else {
+            self.showAlert(message: "You Can't add more video because all access points are taken.")
+            return
+        }
+        
         requireConfirm(title: "Add Media", text: "Are you sure you want to add a new custom video?") {
             [self] in
             if($0) {
 //                USIM.application.config.addCustomVideoData(videoRef: VideoReference(modeKey: targetModeKey!, viewKey: USIM.application.config.getDefaultView(modeKey: targetModeKey!) ?? "idk", pointKey: USIM.application.config.getAccessPoint(index: 0)?.key ?? "idk", instanceKey: UUID().uuidString), name: "New Video", cachedPathRelative: nil)
-                USIM.application.config.addCustomVideoData(videoRef: VideoReference(modeKey: targetModeKey!, viewKey: targetViewKey ?? "idk", pointKey: USIM.application.config.getAccessPoint(index: 0)?.key ?? "idk", instanceKey: UUID().uuidString), name: "New Video", cachedPathRelative: nil)
+                //USIM.application.config.addCustomVideoData(videoRef: VideoReference(modeKey: targetModeKey!, viewKey: targetViewKey ?? "idk", pointKey: USIM.application.config.getAccessPoint(index: 0)?.key ?? "idk", instanceKey: UUID().uuidString), name: "New Video", cachedPathRelative: nil)
+                USIM.application.config.addCustomVideoData(videoRef: VideoReference(modeKey: targetModeKey!, viewKey: targetViewKey ?? "idk", pointKey: "idk", instanceKey: UUID().uuidString), name: "New Video", cachedPathRelative: nil)
+
                     reloadData()
             }
         }

@@ -11,15 +11,21 @@ public class LicenseInformation: Codable {
     
     public let valid: Bool
     public let licenseKey: String
-    public let endDate: Date
+    public let endDate: String
 
-    public init(licenseKey: String, endDate: Date) {
+    public init(licenseKey: String, endDate: String) {
         self.valid = true
         self.licenseKey = licenseKey
         self.endDate = endDate
     }
-
+    
     public func isValid() -> Bool {
-        return valid && Date() < endDate
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd" // Format of the expiry date in your JSON
+        guard let expiryDate = dateFormatter.date(from: endDate) else {
+            return false
+        }
+        return Date() < expiryDate
     }
+
 }

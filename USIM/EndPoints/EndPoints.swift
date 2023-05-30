@@ -16,10 +16,10 @@ extension EndPoints {
     
     static func registerKey(_ licenseKey: String) -> EndPoints {
         return EndPoints(
-            path: "/license_check.php",
+            path: "/api/login",
             queryItems: [
                 URLQueryItem(name: "device_id", value: UIDevice.userID ?? ""),
-                URLQueryItem(name: "license_key", value: licenseKey)
+                URLQueryItem(name: "licence", value: licenseKey)
             ]
         )
     }
@@ -33,9 +33,6 @@ extension EndPoints {
         )
     }
     
-    static func cachVideo() -> (String,[String:String]) {
-        return ("https://thesimulatorcompanysecure.com/video_upload.php",["password": "Team-TSC"])
-    }
 }
 
 extension EndPoints {

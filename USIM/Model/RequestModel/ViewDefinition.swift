@@ -9,13 +9,13 @@ import UIKit
 
 public class ViewDefinition : Codable {
     
-    public var key: String
-    public var modeKey: String
-    public var name: String
+    public var id: Int
+    public var modeid: Int
+    public var viewname: String
     
-    init(key: String, modeKey: String, name: String) {
-        self.key = key
-        self.modeKey = modeKey
-        self.name = name
+    init(id: Int, modeid: Int, viewname: String) {
+        self.id = id
+        self.modeid = modeid
+        self.viewname = viewname
     }
 }

@@ -9,11 +9,11 @@ import UIKit
 
 public class AccessPointLocalData : Codable {
     
-    public var key: String
+    public var id: Int
     public var code: String
     
-    init(key: String, code: String) {
-        self.key = key
+    init(id: Int, code: String) {
+        self.id = id
         self.code = code
     }
 }

@@ -9,11 +9,11 @@ import UIKit
 
 public class VideoLocalData : Codable {
     
-    public var videoRef: VideoReference
+    public var videoRef: VideoRemoteData
     public var cachedPathRelative: String?
     public var cachedOverridePathRelative: String?
     
-    init(videoRef: VideoReference) {
+    init(videoRef: VideoRemoteData) {
         self.videoRef = videoRef
     }
 }

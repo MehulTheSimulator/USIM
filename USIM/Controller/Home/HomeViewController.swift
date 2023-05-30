@@ -103,11 +103,11 @@ class HomeViewController: UIViewController {
          requireConfirm(title: "Add Mode", text: "Are you sure you want to create a new mode?") {
                 [self] in
                 if($0) {
-                    let modeKey = "mode_custom_\(UUID().uuidString)"
-                    USIM.application.config.addCustomMode(modeKey: modeKey, name: "New Mode")
-                    let viewKey = "view_custom_\(UUID().uuidString)"
-                    USIM.application.config.addCustomView(modeKey: modeKey, viewKey: viewKey, name: "New View")
-                    USIM.application.setCurrentMode(modeKey: modeKey)
+                    let modeKey = USIM.application.config.getUUIDAsInt()
+                    USIM.application.config.addCustomMode(modeid: modeKey, name: "New Mode")
+                    let viewKey = USIM.application.config.getUUIDAsInt()
+                    USIM.application.config.addCustomView(modeid: modeKey, id: viewKey, name: "New View")
+                    USIM.application.setCurrentMode(modeid: modeKey)
                     editMode(modeKey: modeKey)
                 }
             }
@@ -117,8 +117,8 @@ class HomeViewController: UIViewController {
          requireConfirm(title: "Add View", text: "Are you sure you want to create a new view?") {
                 [self] in
                 if($0) {
-                    let viewKey = "view_custom_\(UUID().uuidString)"
-                    USIM.application.config.addCustomView(modeKey: USIM.application.currentMode!, viewKey: viewKey, name: "New View")
+                    let viewKey = USIM.application.config.getUUIDAsInt()
+                    USIM.application.config.addCustomView(modeid: USIM.application.currentMode!, id: viewKey, name: "New View")
                     if let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "CustomVideoViewController") as? CustomVideoViewController {
                         secondViewController.targetModeKey = USIM.application.currentMode!
                         secondViewController.targetViewKey = viewKey
@@ -271,7 +271,7 @@ class HomeViewController: UIViewController {
     
     // MARK: - Edit
     
-    func editMode(modeKey: String) {
+    func editMode(modeKey: Int) {
         if let controller = self.storyboard?.instantiateViewController(withIdentifier: String(describing: ModeEditViewController.self)) as? ModeEditViewController {
             controller.targetModeKey = modeKey
             controller.modalTransitionStyle = .crossDissolve
@@ -280,7 +280,7 @@ class HomeViewController: UIViewController {
         }
     }
     
-    func editView(modeKey: String, viewKey: String) {
+    func editView(modeKey: Int, viewKey: Int) {
         if let controller = self.storyboard?.instantiateViewController(withIdentifier: "CustomVideoViewController") as? CustomVideoViewController {
             controller.targetModeKey = modeKey
             controller.targetViewKey = viewKey
@@ -291,24 +291,24 @@ class HomeViewController: UIViewController {
     }
     
     // MARK: - Delete (Mode & Views)
-    func deleteMode(modeKey: String) {
+    func deleteMode(modeid: Int) {
         requireConfirm(title: "Delete Mode", text: "Are you sure you want to delete this mode?") {
             [self] in
             if($0) {
-                USIM.application.config.deleteCustomMode(modeKey: modeKey)
-                USIM.application.setCurrentMode(modeKey: USIM.application.config.getDefaultMode()!)
+                USIM.application.config.deleteCustomMode(modeid: modeid)
+                USIM.application.setCurrentMode(modeid: USIM.application.config.getDefaultMode()!)
                 collectionView.reloadData()
                 collectionViewViews.reloadData()
             }
         }
     }
     
-    func deleteView(modeKey: String, viewKey: String) {
+    func deleteView(modeid: Int, viewid: Int) {
         requireConfirm(title: "Delete View", text: "Are you sure you want to delete this view?") {
             [self] in
             if($0) {
-                USIM.application.config.deleteCustomView(modeKey: modeKey, viewKey: viewKey)
-                USIM.application.setCurrentView(modeKey: modeKey, viewKey: USIM.application.config.getDefaultView(modeKey: modeKey) ?? "")
+                USIM.application.config.deleteCustomView(modeid: modeid, viewid: viewid)
+                USIM.application.setCurrentView(modeid: modeid, viewid: USIM.application.config.getDefaultView(modeid: modeid)!)
                 collectionViewViews.reloadData()
             }
         }

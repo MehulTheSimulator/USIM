@@ -18,14 +18,14 @@ class TagViewsCollectionCell: UICollectionViewCell {
     // MARK: - properties -
     weak var target: HomeViewController?
     var isCustom: Bool = false
-    var modeKey: String?
-    var viewKey: String?
+    var modeKey: Int?
+    var viewKey: Int?
     
     // MARK: - IBActions -
     @IBAction func onButtonSelectMode(_ sender: Any) {
         if let modeKeyValue = modeKey {
             if let viewKeyValue = viewKey {
-                USIM.application.setCurrentView(modeKey: modeKeyValue, viewKey: viewKeyValue)
+                USIM.application.setCurrentView(modeid: modeKeyValue, viewid: viewKeyValue)
                 target?.updateView()
             }
         }
@@ -36,14 +36,14 @@ class TagViewsCollectionCell: UICollectionViewCell {
     }
     
     @IBAction func onButtonDelete(_ sender: Any) {
-        target?.deleteView(modeKey: modeKey!, viewKey: viewKey!)
+        target?.deleteView(modeid: modeKey!, viewid: viewKey!)
     }
     
     // MARK: -  Methods -
     public func update() {
         buttonEdit?.isHidden = !isCustom
         buttonDelete?.isHidden = !isCustom
-        button?.setTitle((modeKey != nil && viewKey != nil ? USIM.application.config.getViewDefinition(modeKey: modeKey!, viewKey: viewKey!)?.name : nil) ?? "", for: .normal)
-        designableView.shadowColor = (USIM.application.currentView ?? "") == viewKey ? UIColor.yellow : UIColor.blue
+        button?.setTitle((modeKey != nil && viewKey != nil ? USIM.application.config.getViewDefinition(modeid: modeKey!, viewid: viewKey!)?.viewname : nil) ?? "", for: .normal)
+        designableView.shadowColor = (USIM.application.currentView ?? 0) == viewKey ? UIColor.yellow : UIColor.blue
     }
 }

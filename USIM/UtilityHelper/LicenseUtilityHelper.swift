@@ -13,11 +13,10 @@ public class LicenseRequestService {
         Task {
             do {
                 let licenseModel =  try await WebServiceManager.requestCallService(endPoint, type: LicenseFormat.self)
-                guard licenseModel.success else { errorCompletion(licenseModel.error ?? "")
+                guard licenseModel.hasError else { errorCompletion(licenseModel.message)
                     return
                 }
-                let licensingValue = (endPoint.queryItems.filter({$0.name == "license_key"}).first)?.value ?? ""
-                let licenseInfo = LicenseInformation(licenseKey: licensingValue, endDate: licenseModel.expiry ?? Date())
+                let licenseInfo = LicenseInformation(licenseKey: licenseModel.view?.licenseKey ?? "", endDate: licenseModel.view?.expiryDate ?? "")
                 guard licenseInfo.isValid() else { errorCompletion("The license has expired.")
                     return
                 }

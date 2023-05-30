@@ -15,12 +15,12 @@ class CustomVideoViewController: UIViewController {
     @IBOutlet weak var lblmode: UILabel!
     
     // MARK: -  Properties -
-    var defaultVideos: [(String, VideoReference)]?
+    var defaultVideos: [(String, VideoRemoteData)]?
     var allCustomMedia: [CustomVideoData] = []
     var cache: NSCache<NSString, UIImage>!
     
-    public var targetModeKey: String?
-    public var targetViewKey: String?
+    public var targetModeKey: Int?
+    public var targetViewKey: Int?
     
     // MARK: - Lazy Properties -
     
@@ -36,16 +36,16 @@ class CustomVideoViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let app = USIM.application
-        self.txtView.text = app.config.getViewDefinition(modeKey: targetModeKey!, viewKey: targetViewKey!)?.name ?? ""
+        self.txtView.text = app.config.getViewDefinition(modeid: targetModeKey!, viewid: targetViewKey!)?.viewname ?? ""
 //        let isNotCustom = app.config.isModeNotCustom(modeKey: targetModeKey!)
 //        txtView?.isUserInteractionEnabled = !isNotCustom
        // btnSetName.isEnabled = !isNotCustom
-        self.lblmode.text = app.config.getMode(modeKey: targetModeKey!)?.name
+        self.lblmode.text = app.config.getMode(modeid: targetModeKey!)?.name
         defaultVideos = []
         for ref in app.config.getDefaultVideos() {
-            let point = app.config.getAccessPoint(key: ref.pointKey)?.name ?? ""
-            let mode = app.config.getMode(modeKey: ref.modeKey)?.name ?? ""
-            let view = app.config.getViewDefinition(modeKey: ref.modeKey, viewKey: ref.viewKey)?.name ?? ""
+            let point = app.config.getAccessPoint(id: ref.point_id)?.name ?? ""
+            let mode = app.config.getMode(modeid: ref.mode_id)?.name ?? ""
+            let view = app.config.getViewDefinition(modeid: ref.mode_id, viewid: ref.view_id)?.viewname ?? ""
             let ind = app.config.getVideoInstanceIndex(ref)
             defaultVideos?.append(("\(point)/\(mode)/\(view) \(ind + 1)", ref))
         }
@@ -59,7 +59,7 @@ class CustomVideoViewController: UIViewController {
     
     @IBAction func onClickCustomViewTool(_ sender: UIButton) {
         let tip = Toolkit()
-        tip.showTipView(sender: sender, text: "The app allows you to create custom views based on your specific angle requirements for the access points. You can add videos to these views based on the access points, and also choose from pre-existing default access points.")
+        tip.showTipView(sender: sender, text: "The app allows you to create custom views based on your specific angle requirements for the access points. You can add videos to these views based on the access points, and also choose from pre-existing default videos.")
     }
     
     @IBAction func onClickUploadMedia(_ sender: UIButton) {
@@ -74,16 +74,15 @@ class CustomVideoViewController: UIViewController {
             if($0) {
 //                USIM.application.config.addCustomVideoData(videoRef: VideoReference(modeKey: targetModeKey!, viewKey: USIM.application.config.getDefaultView(modeKey: targetModeKey!) ?? "idk", pointKey: USIM.application.config.getAccessPoint(index: 0)?.key ?? "idk", instanceKey: UUID().uuidString), name: "New Video", cachedPathRelative: nil)
                 //USIM.application.config.addCustomVideoData(videoRef: VideoReference(modeKey: targetModeKey!, viewKey: targetViewKey ?? "idk", pointKey: USIM.application.config.getAccessPoint(index: 0)?.key ?? "idk", instanceKey: UUID().uuidString), name: "New Video", cachedPathRelative: nil)
-                USIM.application.config.addCustomVideoData(videoRef: VideoReference(modeKey: targetModeKey!, viewKey: targetViewKey ?? "idk", pointKey: "idk", instanceKey: UUID().uuidString), name: "New Video", cachedPathRelative: nil)
-
+                USIM.application.config.addCustomVideoData(videoRef: VideoRemoteData(url: nil, mode_id: targetModeKey!, view_id: targetViewKey ?? 0, point_id: 0, id: USIM.application.config.getUUIDAsInt()), name: "New Video", cachedPathRelative: nil)
                     reloadData()
             }
         }
     }
     
     @IBAction func buttonSetNamePressed(_ sender: Any) {
-        if let def = USIM.application.config.getViewDefinition(modeKey: targetModeKey!, viewKey: targetViewKey!) {
-            def.name = txtView.text ?? "New View"
+        if let def = USIM.application.config.getViewDefinition(modeid: targetModeKey!, viewid: targetViewKey!) {
+            def.viewname = txtView.text ?? "New View"
             USIM.application.config.trySaveLocalData()
         }
         self.showAlert(message: "View name saved")
@@ -97,7 +96,7 @@ class CustomVideoViewController: UIViewController {
     }
     
     func reloadData() {
-        allCustomMedia = USIM.application.config.getAllCustomMedia(modeKey: targetModeKey!, viewKey: targetViewKey!)
+        allCustomMedia = USIM.application.config.getAllCustomMedia(modeid: targetModeKey!, viewid: targetViewKey!)
         videoCollectionView?.reloadData()
     }
     

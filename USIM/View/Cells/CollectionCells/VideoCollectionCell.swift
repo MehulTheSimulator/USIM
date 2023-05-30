@@ -25,9 +25,9 @@ class VideoCollectionCell : UICollectionViewCell {
     
     var pickerPoint: UIPickerView?
     var pickerVideo: UIPickerView?
-    var documentPickerTargetVideoRef: VideoReference? = nil
-    var defaultVideos: [(String, VideoReference)]?
-    var selectedVideo: VideoReference?
+    var documentPickerTargetVideoRef: VideoRemoteData? = nil
+    var defaultVideos: [(String, VideoRemoteData)]?
+    var selectedVideo: VideoRemoteData?
     var imagePicker : UIImagePickerController!
     let playerViewController = AVPlayerViewController()
 
@@ -35,7 +35,7 @@ class VideoCollectionCell : UICollectionViewCell {
         return pickerPoint?.selectedRow(inComponent: 0)
     }
     
-    public func initCell(defaultVideos: [(String, VideoReference)]) {
+    public func initCell(defaultVideos: [(String, VideoRemoteData)]) {
         
         self.defaultVideos = defaultVideos
         selectedVideo = nil
@@ -62,10 +62,10 @@ class VideoCollectionCell : UICollectionViewCell {
         imagePicker.mediaTypes = [kUTTypeMovie as String, kUTTypeVideo as String, kUTTypeMPEG2Video as String, kUTTypeMPEG4 as String]
         imagePicker.allowsEditing = false
         imagePicker.delegate = self
-        txtPoint?.text = USIM.application.config.getAccessPoint(key: customVideoData!.videoRef.pointKey)?.name ?? ""
+        txtPoint?.text = USIM.application.config.getAccessPoint(id: customVideoData!.videoRef.point_id)?.name ?? ""
         
-        if let str = customVideoData?.videoRef.instanceKey {
-            txtVideo?.text = String(str.prefix(18))
+        if let str = customVideoData?.videoRef.id.ToString() {
+            txtVideo?.text = str
         }
         
          //customVideoData!.cachedPathRelative
@@ -89,7 +89,7 @@ class VideoCollectionCell : UICollectionViewCell {
     @objc func doneButtonTapped() {
         
         let filterdata = target?.allCustomMedia.filter({ data in
-            return data.videoRef.pointKey == USIM.application.getAccessPoint(rowId!)!.key
+            return data.videoRef.point_id == USIM.application.getAccessPoint(rowId!)!.id
         })
         guard filterdata!.count == 1 else {
             target?.showAlert(message: "You Can't select same access point again")
@@ -131,7 +131,7 @@ class VideoCollectionCell : UICollectionViewCell {
             [self] in
             if($0) {
                 let app = USIM.application
-                app.config.removeCustomVideoData(modeKey: customVideoData!.videoRef.modeKey, localIndex: index)
+                app.config.removeCustomVideoData(modeKey: customVideoData!.videoRef.mode_id, localIndex: index)
                 target?.reloadData()
             }
         }
@@ -173,7 +173,7 @@ class VideoCollectionCell : UICollectionViewCell {
         txtName?.text = customVideoData!.name
         let app = USIM.application
         //        pickerView?.selectRow(app.config.getViewIndex(modeKey: customVideoData!.videoRef.modeKey, viewKey: customVideoData!.videoRef.viewKey) ?? 0, inComponent: 0, animated: false)
-        pickerPoint?.selectRow(app.config.getAccessPointIndex(pointKey: customVideoData!.videoRef.pointKey) ?? 0, inComponent: 0, animated: false)
+        pickerPoint?.selectRow(app.config.getAccessPointIndex(pointKey: customVideoData!.videoRef.point_id) ?? 0, inComponent: 0, animated: false)
     }
 }
 
@@ -230,7 +230,9 @@ extension VideoCollectionCell : UIPickerViewDataSource, UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let app = USIM.application
         if(pickerView == pickerPoint) {
-            customVideoData?.videoRef = VideoReference(modeKey: customVideoData!.videoRef.modeKey, viewKey: customVideoData!.videoRef.viewKey, pointKey: app.getAccessPoint(row)!.key, instanceKey: customVideoData!.videoRef.instanceKey)
+            customVideoData?.videoRef = VideoRemoteData(url: nil, mode_id: (customVideoData?.videoRef.mode_id)!, view_id: (customVideoData?.videoRef.view_id)!, point_id: (customVideoData?.videoRef.point_id)!, id: (customVideoData?.videoRef.id)!)
+            
+            //VideoRemoteData(modeKey: customVideoData!.videoRef.modeKey, viewKey: customVideoData!.videoRef.viewKey, pointKey: app.getAccessPoint(row)!.key, instanceKey: customVideoData!.videoRef.instanceKey)
             txtPoint?.text = app.getAccessPoint(row)?.name
             //txtPoint?.resignFirstResponder()
         } else {

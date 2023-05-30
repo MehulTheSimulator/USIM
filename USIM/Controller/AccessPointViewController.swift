@@ -14,7 +14,7 @@ class AccessPointViewController: UIViewController {
     @IBOutlet weak var labelState: UILabel!
     
     // MARK: - Properties -
-    var targetPointKey: String?
+    var targetPointKey: Int?
     weak var targetCell: AccessPointTableCell? = nil
 
     // MARK: - Life Cycle -
@@ -38,12 +38,12 @@ class AccessPointViewController: UIViewController {
     }
     
     // MARK: - Methods -
-    func scanCode(target: AccessPointTableCell, pointKey: String) {
+    func scanCode(target: AccessPointTableCell, pointKey: Int) {
         labelState?.text = "Scanning code for \(USIM.application.getAccessPoint(pointKey)!.name)"
         USIM.inputManager.resetInput()
         targetCell = target
         targetPointKey = pointKey
-        USIM.RemoteLog("TargetPointKey: \(targetPointKey ?? "Unset")")
+        USIM.RemoteLog("TargetPointKey: \(targetPointKey ?? 0)")
     }
 }
 
@@ -56,8 +56,8 @@ extension AccessPointViewController: UITableViewDelegate, UITableViewDataSource 
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: AccessPointTableCell.self), for: indexPath) as! AccessPointTableCell
         cell.target = self
         let accessPoint = USIM.application.getAccessPoint(indexPath.row)!
-        cell.targetPointKey = accessPoint.key
-        RemoteLog("Cell TargetPointKey: \(cell.targetPointKey ?? "Unset")")
+        cell.targetPointKey = accessPoint.id
+        RemoteLog("Cell TargetPointKey: \(cell.targetPointKey ?? 0)")
         cell.update()
         return cell
     }
@@ -66,7 +66,7 @@ extension AccessPointViewController: UITableViewDelegate, UITableViewDataSource 
 // MARK: - RFIDInputHandlerCallback
 extension AccessPointViewController: RFIDInputHandlerCallback {
     func handleValidInput(input: String) {
-        USIM.RemoteLog("TargetPointKey: \(targetPointKey ?? "Unset")")
+        USIM.RemoteLog("TargetPointKey: \(targetPointKey ?? 0)")
         if let tpk = targetPointKey {
             USIM.application.setAccessPointCode(tpk, input)
             USIM.RemoteLog("Set \(tpk) to \(input)")

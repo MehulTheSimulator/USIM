@@ -59,7 +59,7 @@ class UpdateConfiguViewController: UIViewController {
                     })
                 USIM.application.currentMode = USIM.application.config.getDefaultMode()
                 if let cmode = USIM.application.currentMode {
-                    USIM.application.currentView = USIM.application.config.getDefaultView(modeKey: cmode)
+                    USIM.application.currentView = USIM.application.config.getDefaultView(modeid: cmode)
                 }
             } catch let error {
                 USIM.RemoteLog("ERROR: \(error)")

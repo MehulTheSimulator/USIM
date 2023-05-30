@@ -26,7 +26,7 @@ class LicenseViewController: UIViewController {
     // MARK: -  IBOutlet -
     @IBOutlet weak var licenseTextField: UITextField? {
         didSet {
-            licenseTextField?.text = "test"
+            licenseTextField?.text = "test1"
         }
     }
     

@@ -11,7 +11,7 @@ import AVFoundation
 
 public class ApplicationConfig {
     
-    public static let RemoteConfigURL: URL = URL(string: "http://thesimulatorcompanysecure.com/remoteConfig.php")!
+    public static let RemoteConfigURL: URL = URL(string: "http://thesimulatorcompanysecure.com/api/all-list")!
     
     private let encoder: JSONEncoder
     private let decoder: JSONDecoder
@@ -57,30 +57,30 @@ public class ApplicationConfig {
         return localData.license
     }
     
-    public func getDefaultMode() -> String? {
+    public func getDefaultMode() -> Int? {
         
         for mode in remoteData.modeDefinitions {
-            return mode.key
+            return mode.id
         }
         
         for mode in localData.customModeDefinitions {
-            return mode.key
+            return mode.id
         }
         
         return nil
     }
     
-    public func getDefaultView(modeKey: String) -> String? {
+    public func getDefaultView(modeid: Int) -> Int? {
         
         for view in remoteData.viewDefinitions {
-            if(view.modeKey.compare(modeKey) == .orderedSame) {
-                return view.key
+            if(view.modeid == modeid) {
+                return view.id
             }
         }
         
         for view in localData.customViewDefinitions {
-            if(view.modeKey.compare(modeKey) == .orderedSame) {
-                return view.key
+            if(view.modeid == modeid) {
+                return view.id
             }
         }
         return nil
@@ -136,7 +136,7 @@ public class ApplicationConfig {
             let videoRemoteData = remoteData.videoRemoteDatas[i]
             do {
                 await statusCallback?("Caching \(i + 1) out of \(remoteData.videoRemoteDatas.count)...")
-                let targetURLOpt = URL(string: videoRemoteData.url)
+                let targetURLOpt = URL(string: videoRemoteData.url!)
                 guard let targetURL = targetURLOpt else {
                     // throw RuntimeError.runtimeError("Invalid URL: \(videoRemoteData.url)")
                     throw RuntimeError(message: "Invalid URL: \(videoRemoteData.url)")
@@ -144,14 +144,14 @@ public class ApplicationConfig {
                 let request = URLRequest(url: targetURL, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 60 * 10)
                 let (data, response) = try await URLSession.shared.data(for: request)
                 RemoteLog(response.description)
-                let cachedPathRelative = "\(videoRemoteData.videoRef.modeKey)_\(videoRemoteData.videoRef.viewKey)_\(videoRemoteData.videoRef.pointKey).\(targetURL.pathExtension)"
+                let cachedPathRelative = "\(videoRemoteData.mode_id)_\(videoRemoteData.view_id)_\(videoRemoteData.point_id).\(targetURL.pathExtension)"
                 let cachedURL = FileHelper.file(folderCachedVideos, cachedPathRelative)
                 RemoteLog("Data size: \(data.count)")
                 try FileHelper.writeData(cachedURL, data)
                 try RemoteLog("\(FileManager.default.attributesOfItem(atPath: cachedURL.path)[.size] ?? 0)")
-                getLocalVideoData(videoRemoteData.videoRef).cachedPathRelative = cachedPathRelative
+                getLocalVideoData(videoRemoteData).cachedPathRelative = cachedPathRelative
             } catch let error {
-                RemoteLog("Unable to cache video \(videoRemoteData.videoRef.toString()): \(error)")
+                RemoteLog("Unable to cache video \(videoRemoteData.toString()): \(error)")
             }
         }
         
@@ -203,35 +203,35 @@ public class ApplicationConfig {
         return remoteData.modeDefinitions[index]
     }
     
-    public func getViewCount(modeKey: String) -> Int {
+    public func getViewCount(modeid: Int) -> Int {
         var cnt: Int = 0
         for viewDef in remoteData.viewDefinitions {
-            if(viewDef.modeKey.compare(modeKey) == .orderedSame) {
+            if(viewDef.modeid == modeid) {
                 cnt += 1
             }
         }
         for viewDef in localData.customViewDefinitions {
-            if(viewDef.modeKey.compare(modeKey) == .orderedSame) {
+            if(viewDef.modeid == modeid) {
                 cnt += 1
             }
         }
         return cnt
     }
     
-    public func getDefaultViewCount(modeKey: String) -> Int {
+    public func getDefaultViewCount(modeid: Int) -> Int {
         var cnt: Int = 0
         for viewDef in remoteData.viewDefinitions {
-            if(viewDef.modeKey.compare(modeKey) == .orderedSame) {
+            if(viewDef.modeid == modeid) {
                 cnt += 1
             }
         }
         return cnt
     }
     
-    public func getViewDefinition(modeKey: String, index: Int) -> ViewDefinition? {
+    public func getViewDefinition(modeid: Int, index: Int) -> ViewDefinition? {
         var cnt: Int = 0
         for viewDef in remoteData.viewDefinitions {
-            if(viewDef.modeKey.compare(modeKey) == .orderedSame) {
+            if(viewDef.modeid == modeid) {
                 if(cnt == index) {
                     return viewDef
                 }
@@ -239,7 +239,7 @@ public class ApplicationConfig {
             }
         }
         for viewDef in localData.customViewDefinitions {
-            if(viewDef.modeKey.compare(modeKey) == .orderedSame) {
+            if(viewDef.modeid == modeid) {
                 if(cnt == index) {
                     return viewDef
                 }
@@ -249,14 +249,14 @@ public class ApplicationConfig {
         return nil
     }
     
-    public func getViewDefinition(modeKey: String, viewKey: String) -> ViewDefinition? {
+    public func getViewDefinition(modeid: Int, viewid: Int) -> ViewDefinition? {
         for viewDef in remoteData.viewDefinitions {
-            if(viewDef.modeKey.compare(modeKey) == .orderedSame && viewDef.key.compare(viewKey) == .orderedSame) {
+            if(viewDef.modeid == modeid && viewDef.id == viewid) {
                 return viewDef
             }
         }
         for viewDef in localData.customViewDefinitions {
-            if(viewDef.modeKey.compare(modeKey) == .orderedSame && viewDef.key.compare(viewKey) == .orderedSame) {
+            if(viewDef.modeid == modeid && viewDef.id == viewid) {
                 return viewDef
             }
         }
@@ -264,7 +264,6 @@ public class ApplicationConfig {
     }
     
     public func getAccessPointCount() -> Int {
-        
         return remoteData.pointDefinitions.count
     }
     
@@ -277,39 +276,35 @@ public class ApplicationConfig {
         return remoteData.pointDefinitions[index]
     }
     
-    public func getAccessPoint(key: String) -> AccessPointDefinition? {
+    public func getAccessPoint(id: Int) -> AccessPointDefinition? {
         
         for pointDefinition in remoteData.pointDefinitions {
-            if(pointDefinition.key.compare(key) == .orderedSame) {
+            if(pointDefinition.id == id) {
                 return pointDefinition
             }
         }
-        
         return nil
     }
     
-    public func getAccessPointLocalData(key: String) -> AccessPointLocalData? {
+    public func getAccessPointLocalData(id: Int) -> AccessPointLocalData? {
         
-        RemoteLog("getAccesPointLocalData for \(key)...")
+        RemoteLog("getAccesPointLocalData for \(id)...")
         RemoteLog("\(localData.pointDatas)")
-        
         for pointDefinition in localData.pointDatas {
-            if(pointDefinition.key.compare(key) == .orderedSame) {
+            if(pointDefinition.id == id) {
                 RemoteLog("Found!");
                 return pointDefinition
             }
         }
-        
         RemoteLog("Not found!");
-        
-        localData.pointDatas.append(AccessPointLocalData(key: key, code: ""))
+        localData.pointDatas.append(AccessPointLocalData(id: id, code: ""))
         return localData.pointDatas[localData.pointDatas.count - 1]
     }
     
-    public func setAccessPointCode(key: String, code: String) {
+    public func setAccessPointCode(id: Int, code: String) {
         
         for ap in localData.pointDatas {
-            if(ap.key.compare(key) == .orderedSame) {
+            if(ap.id == id) {
                 ap.code = code
             } else if(ap.code.compare(code) == .orderedSame) {
                 ap.code = ""
@@ -319,7 +314,7 @@ public class ApplicationConfig {
         trySaveLocalData()
     }
     
-    private func uncacheCustomVideo(videoRef: VideoReference, videoData: VideoLocalData? = nil) {
+    private func uncacheCustomVideo(videoRef: VideoRemoteData, videoData: VideoLocalData? = nil) {
         
         let vd = videoData ?? getLocalVideoData(videoRef)
         
@@ -373,14 +368,14 @@ public class ApplicationConfig {
         }
     }*/
     
-    public func cacheCustomVideo(videoRef: VideoReference, url: URL, customVideoData: CustomVideoData) async throws -> UIImage? {
+    public func cacheCustomVideo(videoRef: VideoRemoteData, url: URL, customVideoData: CustomVideoData) async throws -> UIImage? {
 
         uncacheCustomVideoData(customVideoData: customVideoData)
 
         do {
             try FileHelper.mkdirs(folderCachedCustomVideos)
             let (data, _) = try await URLSession.shared.data(from: url)
-            let cachedPathRelative = "\(videoRef.modeKey)_\(videoRef.viewKey)_\(videoRef.pointKey)_\(videoRef.instanceKey).\(url.pathExtension)"
+            let cachedPathRelative = "\(videoRef.mode_id)_\(videoRef.view_id)_\(videoRef.point_id)_\(videoRef.id).\(url.pathExtension)"
             let cachedURL = FileHelper.file(folderCachedCustomVideos, cachedPathRelative)
             try data.write(to: cachedURL)
             customVideoData.cachedPathRelative = cachedPathRelative
@@ -390,25 +385,6 @@ public class ApplicationConfig {
             try imageData.write(to: cachedimageURL)
             trySaveLocalData()
             return image
-
-
-            /*AF.upload(multipartFormData: { multipartFormData in
-                multipartFormData.append(url, withName: "video", fileName: url.lastPathComponent, mimeType: "video/\(url.pathExtension)")
-                for (key, value) in EndPoints.cachVideo().1 {
-                    multipartFormData.append(value.data(using: .utf8)!, withName: key)
-                }
-            }, to: EndPoints.cachVideo().0)
-            .validate()
-            .responseJSON { response in
-                switch response.result {
-                case .success(let value):
-                    successCompletion(value)
-                    print("Success: \(value)")
-                case .failure(let error):
-                    print("Error: \(error.localizedDescription)")
-                }
-            }*/
-
         } catch let error {
             USIM.RemoteLog("Unable to cache video \(videoRef.toString()): \(error)")
             return nil
@@ -416,7 +392,7 @@ public class ApplicationConfig {
 
     }
 
-    public func setVideoToDefault(videoRef: VideoReference) {
+    public func setVideoToDefault(videoRef: VideoRemoteData) {
         
         let vd = getLocalVideoData(videoRef)
         uncacheCustomVideo(videoRef: videoRef, videoData: vd)
@@ -432,7 +408,7 @@ public class ApplicationConfig {
      trySaveLocalData()
      }*/
     
-    private func getLocalVideoData(_ ref: VideoReference) -> VideoLocalData {
+    private func getLocalVideoData(_ ref: VideoRemoteData) -> VideoLocalData {
         
         for videoData in localData.videoDatas {
             if(videoData.videoRef == ref) {
@@ -445,15 +421,15 @@ public class ApplicationConfig {
         return d
     }
     
-    public func getMode(modeKey: String) -> ModeDefinition? {
+    public func getMode(modeid: Int) -> ModeDefinition? {
         
         for mode in remoteData.modeDefinitions {
-            if(mode.key.compare(modeKey) == .orderedSame) {
+            if(mode.id == modeid) {
                 return mode
             }
         }
         for mode in localData.customModeDefinitions {
-            if(mode.key.compare(modeKey) == .orderedSame) {
+            if(mode.id == modeid) {
                 return mode
             }
         }
@@ -461,10 +437,10 @@ public class ApplicationConfig {
         return nil
     }
     
-    public func isModeNotCustom(modeKey: String) -> Bool {
+    public func isModeNotCustom(modeid: Int) -> Bool {
         
         for mode in remoteData.modeDefinitions {
-            if(mode.key.compare(modeKey) == .orderedSame) {
+            if(mode.id == modeid) {
                 return true
             }
         }
@@ -472,13 +448,13 @@ public class ApplicationConfig {
         return false
     }
     
-    public func getAccessPointKeyFromCode(code: String) -> String? {
+    public func getAccessPointKeyFromCode(code: String) -> Int? {
         
         for pointData in localData.pointDatas {
             if(pointData.code.compare(code) == .orderedSame) {
                 for remoteData in remoteData.pointDefinitions {
-                    if(remoteData.key.compare(pointData.key) == .orderedSame) {
-                        return pointData.key
+                    if(remoteData.id == pointData.id) {
+                        return pointData.id
                     }
                 }
             }
@@ -487,34 +463,34 @@ public class ApplicationConfig {
         return nil
     }
     
-    public func getCachedVideoURLs(pointKey: String, modeKey: String, viewKey: String) -> [(String, URL)] {
+    public func getCachedVideoURLs(point_id: Int, mode_id: Int, view_id: Int) -> [(Int, URL)] {
         
-        RemoteLog("Let's try get videos for \(modeKey)_\(viewKey)_\(pointKey)!")
+        RemoteLog("Let's try get videos for \(mode_id)_\(view_id)_\(point_id)!")
         
-        var videos: [(String, URL)] = []
+        var videos: [(Int, URL)] = []
         
         for customVideoData in localData.customVideoDatas {
-            RemoteLog("Let's check against \(customVideoData.videoRef.modeKey)_\(customVideoData.videoRef.viewKey)_\(customVideoData.videoRef.pointKey)")
-            if(customVideoData.videoRef.pointKey.compare(pointKey) == .orderedSame &&
-               customVideoData.videoRef.modeKey.compare(modeKey) == .orderedSame &&
-               customVideoData.videoRef.viewKey.compare(viewKey) == .orderedSame) {
+            RemoteLog("Let's check against \(customVideoData.videoRef.mode_id)_\(customVideoData.videoRef.view_id)_\(customVideoData.videoRef.point_id)")
+            if(customVideoData.videoRef.point_id == point_id &&
+               customVideoData.videoRef.mode_id == mode_id &&
+               customVideoData.videoRef.view_id == view_id) {
                 RemoteLog("Equal!")
                 if let pr = customVideoData.cachedPathRelative {
                     RemoteLog("We have a cached path! \(FileHelper.file(folderCachedCustomVideos, pr).absoluteString)")
-                    videos.append((customVideoData.videoRef.instanceKey, FileHelper.file(folderCachedCustomVideos, pr)))
+                    videos.append((customVideoData.videoRef.id, FileHelper.file(folderCachedCustomVideos, pr)))
                 }
             }
         }
         
         for videoData in localData.videoDatas {
-            if(videoData.videoRef.pointKey.compare(pointKey) == .orderedSame &&
-               videoData.videoRef.modeKey.compare(modeKey) == .orderedSame &&
-               videoData.videoRef.viewKey.compare(viewKey) == .orderedSame) {
+            if(videoData.videoRef.point_id == point_id &&
+               videoData.videoRef.mode_id == mode_id &&
+               videoData.videoRef.view_id == view_id) {
                 if let overridePathRelative = videoData.cachedOverridePathRelative {
-                    videos.append((videoData.videoRef.instanceKey, FileHelper.file(folderCachedCustomVideos, overridePathRelative)))
+                    videos.append((videoData.videoRef.id, FileHelper.file(folderCachedCustomVideos, overridePathRelative)))
                 }
                 if let pathRelative = videoData.cachedPathRelative {
-                    videos.append((videoData.videoRef.instanceKey, FileHelper.file(folderCachedVideos, pathRelative)))
+                    videos.append((videoData.videoRef.id, FileHelper.file(folderCachedVideos, pathRelative)))
                 }
             }
         }
@@ -550,13 +526,13 @@ public class ApplicationConfig {
         return nil
     }
     
-    public func getCachedVideoURL(videoRef: VideoReference) -> URL? {
+    public func getCachedVideoURL(videoRef: VideoRemoteData) -> URL? {
         
         RemoteLog("Let's try get videos for \(videoRef)!")
         
         
         for customVideoData in localData.customVideoDatas {
-            RemoteLog("Let's check against \(customVideoData.videoRef.modeKey)_\(customVideoData.videoRef.viewKey)_\(customVideoData.videoRef.pointKey)")
+            RemoteLog("Let's check against \(customVideoData.videoRef.mode_id)_\(customVideoData.videoRef.view_id)_\(customVideoData.videoRef.point_id)")
             if(customVideoData.videoRef == videoRef) {
                 RemoteLog("Equal!")
                 if let pr = customVideoData.cachedPathRelative {
@@ -580,29 +556,29 @@ public class ApplicationConfig {
         return nil
     }
     
-    public func addCustomMode(modeKey: String, name: String) {
+    public func addCustomMode(modeid: Int, name: String) {
         
-        localData.customModeDefinitions.append(ModeDefinition(key: modeKey, name: name))
+        localData.customModeDefinitions.append(ModeDefinition(id: modeid, name: name))
         trySaveLocalData()
     }
     
-    public func addCustomView(modeKey: String, viewKey: String, name: String) {
+    public func addCustomView(modeid: Int, id: Int, name: String) {
         
-        localData.customViewDefinitions.append(ViewDefinition(key: viewKey, modeKey: modeKey, name: name))
+        localData.customViewDefinitions.append(ViewDefinition(id: id, modeid: modeid, viewname: name))
         trySaveLocalData()
     }
     
-    public func getAllCustomMedia(modeKey: String, viewKey: String) -> [CustomVideoData] {
+    public func getAllCustomMedia(modeid: Int, viewid: Int) -> [CustomVideoData] {
         var datas: [CustomVideoData] = []
         for d in localData.customVideoDatas {
-            if(d.videoRef.modeKey.compare(modeKey) == .orderedSame) && (d.videoRef.viewKey.compare(viewKey) == .orderedSame)  {
+            if(d.videoRef.mode_id == modeid) && (d.videoRef.view_id == viewid)  {
                 datas.append(d)
             }
         }
         return datas
     }
     
-    public func addCustomVideoData(videoRef: VideoReference, name: String, cachedPathRelative: String?) {
+    public func addCustomVideoData(videoRef: VideoRemoteData, name: String, cachedPathRelative: String?) {
         
         let d = CustomVideoData(videoRef: videoRef, name: name)
         d.cachedPathRelative = cachedPathRelative
@@ -610,66 +586,67 @@ public class ApplicationConfig {
         trySaveLocalData()
     }
     
-    public func deleteCustomMode(modeKey: String) {
+    public func deleteCustomMode(modeid: Int) {
         
         localData.customModeDefinitions.removeAll() {
             element in
-            return element.key.compare(modeKey) == .orderedSame
+            return element.id == modeid
         }
         
         localData.customViewDefinitions.removeAll() {
             element in
-            return element.modeKey.compare(modeKey) == .orderedSame
+            return element.modeid == modeid
         }
         
         for d in localData.customVideoDatas {
-            if(d.videoRef.modeKey.compare(modeKey) == .orderedSame) {
+            if(d.videoRef.mode_id == modeid) {
                 uncacheCustomVideoData(customVideoData: d, save: false)
             }
         }
         
         localData.customVideoDatas.removeAll() {
             element in
-            return element.videoRef.modeKey.compare(modeKey) == .orderedSame
+            return element.videoRef.mode_id == modeid
         }
         
         trySaveLocalData()
     }
     
-    public func deleteCustomView(modeKey: String, viewKey: String) {
+    public func deleteCustomView(modeid: Int, viewid: Int) {
         
         localData.customViewDefinitions.removeAll() {
             element in
-            return element.modeKey.compare(modeKey) == .orderedSame && element.key.compare(viewKey) == .orderedSame
+            return element.modeid == modeid && element.id == viewid
         }
         
         for d in localData.customVideoDatas {
-            if(d.videoRef.modeKey.compare(modeKey) == .orderedSame && d.videoRef.viewKey.compare(viewKey) == .orderedSame) {
+            if(d.videoRef.mode_id == modeid && d.videoRef.view_id == viewid) {
                 uncacheCustomVideoData(customVideoData: d, save: false)
             }
         }
         
         localData.customVideoDatas.removeAll() {
             element in
-            return element.videoRef.modeKey.compare(modeKey) == .orderedSame && element.videoRef.viewKey.compare(viewKey) == .orderedSame
+            return element.videoRef.mode_id == modeid && element.videoRef.view_id == viewid
         }
         
         trySaveLocalData()
     }
-    public func getViewIndex(modeKey: String, viewKey: String) -> Int? {
+    
+    public func getViewIndex(modeKey: Int, viewKey: Int) -> Int? {
         
         var cnt: Int = 0
         for viewDef in remoteData.viewDefinitions {
-            if(viewDef.modeKey.compare(modeKey) == .orderedSame) {
-                if(viewDef.key.compare(viewKey) == .orderedSame) {
+            if(viewDef.modeid == modeKey) {
+                if(viewDef.id == viewKey) {
                     return cnt
                 }
                 cnt += 1
             }
         }
         for viewDef in localData.customViewDefinitions {
-            if(viewDef.modeKey.compare(modeKey) == .orderedSame) {
-                if(viewDef.key.compare(viewKey) == .orderedSame) {
+            if(viewDef.modeid == modeKey) {
+                if(viewDef.id == viewKey) {
                     return cnt
                 }
                 cnt += 1
@@ -678,12 +655,12 @@ public class ApplicationConfig {
         return nil
     }
     
-    public func getAccessPointIndex(pointKey: String) -> Int? {
+    public func getAccessPointIndex(pointKey: Int) -> Int? {
         
         var cnt: Int = 0
         
         for p in remoteData.pointDefinitions {
-            if(p.key.compare(pointKey) == .orderedSame) {
+            if(p.id == pointKey) {
                 return cnt
             }
             cnt += 1
@@ -692,12 +669,12 @@ public class ApplicationConfig {
         return nil
     }
     
-    public func getCustomVideoDataIndexFromLocalIndex(modeKey: String, localIndex: Int) -> Int? {
+    public func getCustomVideoDataIndexFromLocalIndex(modeKey: Int, localIndex: Int) -> Int? {
         
         var index = 0
         var cnt = 0
         for d in localData.customVideoDatas {
-            if(d.videoRef.modeKey.compare(modeKey) == .orderedSame) {
+            if(d.videoRef.mode_id == modeKey) {
                 if(cnt == localIndex) {
                     return index
                 }
@@ -727,7 +704,7 @@ public class ApplicationConfig {
         }
     }
     
-    public func removeCustomVideoData(modeKey: String, localIndex: Int) {
+    public func removeCustomVideoData(modeKey: Int, localIndex: Int) {
         
         if let index = getCustomVideoDataIndexFromLocalIndex(modeKey: modeKey, localIndex: localIndex) {
             
@@ -739,26 +716,26 @@ public class ApplicationConfig {
         }
     }
     
-    public func getDefaultVideos() -> [VideoReference] {
+    public func getDefaultVideos() -> [VideoRemoteData] {
         
-        var vids: [VideoReference] = []
+        var vids: [VideoRemoteData] = []
         
         for videoData in remoteData.videoRemoteDatas {
-            vids.append(videoData.videoRef)
+            vids.append(videoData)
         }
         
         return vids
     }
     
-    public func getVideoInstanceIndex(_ videoRef: VideoReference) -> Int {
+    public func getVideoInstanceIndex(_ videoRef: VideoRemoteData) -> Int {
         
         var ind = 0
         
         for videoData in remoteData.videoRemoteDatas {
-            if(videoData.videoRef.pointKey.compare(videoRef.pointKey) == .orderedSame &&
-               videoData.videoRef.modeKey.compare(videoRef.modeKey) == .orderedSame &&
-               videoData.videoRef.viewKey.compare(videoRef.viewKey) == .orderedSame) {
-                if(videoData.videoRef.instanceKey.compare(videoRef.instanceKey) == .orderedSame) {
+            if(videoData.point_id == videoRef.point_id &&
+               videoData.mode_id == videoRef.mode_id &&
+               videoData.view_id == videoRef.view_id) {
+                if(videoData.id == videoRef.id) {
                     break
                 }
                 
@@ -826,5 +803,12 @@ public class ApplicationConfig {
         } catch let error {
             print("Unable to debug print: \(error)")
         }
+    }
+    
+    func getUUIDAsInt() -> Int {
+        let uuid = UUID()
+        let uuidHashValue = uuid.hashValue
+        let uuidInt = Int(uuidHashValue) + Int.random(in: 0...999)
+        return uuidInt
     }
 }

@@ -9,11 +9,11 @@ import UIKit
 
 public class AccessPointDefinition : Codable {
     
-    public var key: String
+    public var id: Int
     public var name: String
     
-    init(key: String, name: String) {
-        self.key = key
+    init(id: Int, name: String) {
+        self.id = id
         self.name = name
     }
 }

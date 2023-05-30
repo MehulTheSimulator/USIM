@@ -18,13 +18,13 @@ class TagModeCollectionCell: UICollectionViewCell {
     // MARK: - Properties -
     weak var target: HomeViewController?
     var isCustom: Bool = false
-    var modeKey: String?
+    var modeKey: Int?
     
     // MARK: - IBActions -
     @IBAction func onButtonSelectMode(_ sender: Any) {
         let app = USIM.application
         if let modeKeyValue = modeKey {
-            app.setCurrentMode(modeKey: modeKeyValue)
+            app.setCurrentMode(modeid: modeKeyValue)
             target?.updateMode()
         }
     }
@@ -34,7 +34,7 @@ class TagModeCollectionCell: UICollectionViewCell {
     }
     
     @IBAction func onButtonDelete(_ sender: Any) {
-        target?.deleteMode(modeKey: modeKey!)
+        target?.deleteMode(modeid: modeKey!)
     }
     
     // MARK: - Methods -
@@ -43,6 +43,6 @@ class TagModeCollectionCell: UICollectionViewCell {
         buttonDelete?.isHidden = !isCustom
         let app = USIM.application
         button?.setTitle((modeKey != nil ? app.getMode(modeKey: modeKey!)?.name : nil) ?? "", for: .normal)
-        designableView.shadowColor = (app.currentMode ?? "") == modeKey ? UIColor.yellow : UIColor.blue
+        designableView.shadowColor = (app.currentMode ?? 0) == modeKey ? UIColor.yellow : UIColor.blue
     }
 }

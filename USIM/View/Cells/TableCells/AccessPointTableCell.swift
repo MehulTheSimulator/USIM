@@ -11,7 +11,7 @@ class AccessPointTableCell: UITableViewCell {
     
     // MARK: - Properties -
     weak var target: AccessPointViewController?
-    var targetPointKey: String?
+    var targetPointKey: Int?
 
     // MARK: -  IBoutlets -
     @IBOutlet weak var nameLabel: UILabel?

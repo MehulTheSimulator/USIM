@@ -20,7 +20,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         guard let mode = USIM.application.currentMode else {
             return 0
         }
-        return USIM.application.config.getViewCount(modeKey: mode)
+        return USIM.application.config.getViewCount(modeid: mode)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -30,7 +30,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let mode = USIM.application.getMode(modeIndex)!
             cell.target = self
             cell.isCustom = modeIndex >= USIM.application.config.getDefaultModeCount()
-            cell.modeKey = mode.key
+            cell.modeKey = mode.id
             cell.update()
             return cell
         }
@@ -38,11 +38,11 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let viewIndex = indexPath.row
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: TagViewsCollectionCell.self), for: indexPath) as! TagViewsCollectionCell
         let modeKey = USIM.application.currentMode!
-        let view = USIM.application.config.getViewDefinition(modeKey: modeKey, index: viewIndex)!
+        let view = USIM.application.config.getViewDefinition(modeid: modeKey, index: viewIndex)!
         cell.target = self
-        cell.isCustom = viewIndex >= USIM.application.config.getDefaultViewCount(modeKey: modeKey)
-        cell.modeKey = view.modeKey
-        cell.viewKey = view.key
+        cell.isCustom = viewIndex >= USIM.application.config.getDefaultViewCount(modeid: modeKey)
+        cell.modeKey = view.modeid
+        cell.viewKey = view.id
         cell.update()
         return cell
     }
@@ -69,7 +69,7 @@ extension HomeViewController: RFIDInputHandlerCallback {
                 if let lik = lastInstanceKey {
                     for i in 0...(urls.count - 1) {
                         USIM.RemoteLog("URL \(i): \(urls[i].0) - \(urls[i].1)")
-                        if(urls[i].0.compare(lik) == .orderedSame) {
+                        if(urls[i].0.ToString().compare(lik) == .orderedSame) {
                             index = i
                             break
                         }
@@ -81,7 +81,7 @@ extension HomeViewController: RFIDInputHandlerCallback {
                     index = (index + 1) % urls.count
                 }
                 USIM.RemoteLog("Target Index: \(index)")
-                lastInstanceKey = urls[index].0
+                lastInstanceKey = urls[index].0.ToString()
                 targetURL = urls[index].1
             }
             if let url = targetURL {
@@ -135,7 +135,7 @@ extension HomeViewController : UNUserNotificationCenterDelegate {
         content.title = "Your license will expire soon!"
         content.body = "Renew your license before it expires to avoid any inconvenience."
 
-        let expiryDate = USIM.application.config.getLicenseInfo()?.endDate ?? Date()
+        let expiryDate = USIM.application.config.getLicenseInfo()?.endDate.toDate() ?? Date()
         let TriggerDate = Calendar.current.date(byAdding: adding, value: value, to: expiryDate)!
         let Trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: TriggerDate), repeats: false)
         let Request = UNNotificationRequest(identifier: identifier, content: content, trigger: Trigger)

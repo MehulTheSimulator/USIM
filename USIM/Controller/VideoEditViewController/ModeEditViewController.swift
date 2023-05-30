@@ -12,7 +12,7 @@ class ModeEditViewController: UIViewController {
     @IBOutlet weak var txtMode: UITextField!
     
     // MARK: - Properties -
-    public var targetModeKey: String?
+    public var targetModeKey: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
